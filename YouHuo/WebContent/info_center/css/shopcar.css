@@ -1,0 +1,98 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+img {
+	border: none;
+	vertical-align: bottom;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	width: 1000px;
+	line-height: 80px;
+	margin: 70px auto 10px;
+	border-bottom: 2px solid #666;
+	text-align: center;
+}
+
+/*table {
+	margin: 0px auto;
+	width: 1000px;
+}*/
+
+table th {
+	border-bottom: 1px solid #999;
+	text-align: center;
+}
+table tr th.left>input{
+	margin-right: 52px;
+}
+table tr td.left>input{
+	margin-right: 10px;
+	margin-top: 30px;
+}
+table td{
+	font-size: 14px;
+	border-bottom: 1px solid #999;
+}
+
+table td.desc>span{
+	line-height: 86px;
+}
+table td.goods-amout>span{
+	margin-top: 30px;
+}
+table td.price>span{
+	display: block;
+	margin-top: 32px;
+}
+table td.subtotal>span{
+	display: block;
+	margin-top: 32px;
+}
+table td.delete>a{
+	display: block;
+	margin-top: 32px;
+}
+table tr{
+	text-align: center;
+	line-height: 90px;
+}
+
+
+table td img{
+	width: 70px;
+	vertical-align: top;
+}
+
+.reduce,.add {
+	width: 20px;
+	height: 30px;
+	font-size: 20px;
+	line-height: 30px;
+	text-align: center;
+	margin: 0px 5px;
+	display: inline-block;
+	background: #eee;
+	cursor: pointer;
+	color: #333;
+	border: 1px solid #eee;
+}
+
+.reduce:hover,.add:hover {
+	border: 1px solid orange;
+	color: orange;
+}
+
+h2 {
+	width: 1000px;
+	margin: 20px auto;
+	text-align: right;
+}
+
+

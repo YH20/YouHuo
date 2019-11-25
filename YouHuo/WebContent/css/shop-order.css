@@ -1,0 +1,623 @@
+*{margin: 0px;padding: 0px;}
+a{text-decoration: none;}
+li{list-style:none;}
+img{border: 0px;vertical-align: bottom;}
+.my-order{
+	width: 100%;
+	padding-top: 100px;
+	margin-bottom: 50px;
+	background: rgb(242, 242, 242);
+}
+.myorder{
+	
+}
+.myorder{
+	
+}
+.container{
+}
+.row{
+	
+}
+.show-address{
+	
+}
+.adress-order{
+	position: relative;
+}
+/*.adre-tit{
+	margin-top: 40px;
+}*/
+.adress-order .show-address .tita{
+	font-size: 20px;
+	font-family:"bradley hand itc";
+	font-weight: bold;
+	
+}
+.adress-order .show-address .titone{
+	font-size: 15px;
+	text-decoration: none;
+}
+.show-address{
+
+}
+.addli:after{
+	 content: ''; display: block; clear: both;
+}
+.show-address .addli>li{
+	position: relative;
+	float: left;
+	width: 283px;
+	height: 110px;
+	margin-right: 5px;
+	margin-top: 10px;
+	background: url(../img/addr-wide.png);
+}
+.show-address .addli> .select-address{
+	background: url(../img/addr-selected.png);
+}
+.show-address .myshowselect{
+	width: 100%;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+}
+.show-address .addli li> .li-inner{
+	width: 253px;
+	height: 95px;
+	margin:10px auto;
+	
+}
+.myinfo{
+	position: relative;
+	margin-top: 10px;
+	border-bottom: 1px solid brown;
+}
+.show-address .addli>li .li-inner .myinfo .handle-default{
+	position: absolute;
+	color: goldenrod;
+	top: 0px;
+	left: 190px;
+	display: none;
+}
+.show-address .addli> .select-address .li-inner .myinfo  .handle-default{
+	display: block;
+}
+
+.myinfo .handle-delete{
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	top:2px ;
+	left: 234px;
+	background: url(../img/reg_icons.png) -50px -24px no-repeat;
+	opacity: 0.5;
+	cursor: pointer;
+	display: none;
+}
+.myinfo .handle-delete:hover{
+	opacity: 0.9;
+}
+.myinfo-address{
+	margin-top: 10px;
+}
+.myinfo-address >span{
+	font-family: "ms serif";
+	font-size: 14px;
+}
+
+.show-address .addli>li .li-inner .addr-alter{
+	text-decoration: none;
+	position: absolute;
+	color: #005EA7 ;
+	font-size: 12px;
+	top: 80px;
+	left: 180px;
+	cursor: pointer;
+	display: none;
+}
+.show-address .addli> .select-address .li-inner .addr-alter{
+	display: block;
+}
+.show-address .addli li .li-inner .addr-alter:hover{
+	color: goldenrod;
+}
+
+.show-address .addli>li .li-inner .addr-set{
+	text-decoration: none;
+	position: absolute;
+	color: #005EA7 ;
+	font-size: 12px;
+	top: 80px;
+	left: 210px;
+	cursor: pointer;
+	display: none;
+}
+.show-address .addli> .select-address .li-inner .addr-set{
+	display: none;
+}
+
+.show-address .addli>li .li-inner .addr-set:hover{
+	color: goldenrod;
+}
+.show-address .addli>li .myselect{
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	top:85px;
+	left: 258px;
+	background: url(../img/pn.png) -85px -137px no-repeat;
+	display: none;
+}
+.show-address .addli> .select-address .myselect{
+	display: block;
+}
+
+/*.showselect{
+   	text-decoration: none;
+   	display: inline-block;
+}*/
+
+/*支付方式*/
+.adress-order .mypay{
+	margin-top: 40px;
+	
+}
+.mypay .pay-tit{
+	font-size: 20px;
+	font-family:"bradley hand itc";
+	font-weight: bold;
+}
+.paymode:after{
+	 content: ''; display: block; clear: both;
+}
+.paymode{
+	margin-top: 10px;
+}
+
+.paymode>li{
+	float: left;
+	margin-right: 5px;
+	background: ghostwhite;
+	cursor: pointer;
+}
+.paymode .paydefault{
+	border:2px solid gold;
+}
+.paymode>li>div{
+	width: 200px;
+	height: 40px;
+	font-size: 25px;
+}
+.paymode>li:hover{
+	background: whitesmoke;
+}
+.myproduct{
+	margin-top: 20px;
+	border-bottom: 2px solid silver;
+}
+.myproduct .producttit{
+	font-size: 20px;
+	font-family:"bradley hand itc";
+	font-weight: bold;
+}
+
+.myproduct .returncar{
+	text-decoration: none;
+}
+.myproduct-info{
+	margin-top: 20px;
+}
+.th-one{
+	width: 366px;
+}
+.th-two{
+	width: 390px;
+}
+
+.storeinfo{
+
+}
+
+.oneinfo{
+    width: 366px;
+}
+.storel{
+	float: left;
+	width: 80px;
+	height: 80px;
+	border:  1px solid red;
+	overflow: hidden;
+}
+.storel>img{
+	width: 80px;
+	height: 80px;
+}
+.storer{
+	float: left;
+	margin-top: 15px;
+	margin-left:30px;
+    overflow: hidden;
+}
+.storer .storetitone{
+	width: 250px;
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+}
+.storer>p{
+  color: slateblue;
+}
+
+.mywrite{
+	width: 600px;
+	height: 80px;
+	margin-left: 20px;
+	resize: none;
+}
+.freight-type{
+	
+}
+.freight-type .freight{
+	font-size: 20px;
+	color: green;
+}
+
+.freightbao .fremoenyone>.fremoeny{
+	font-size: 15px;
+	color:green;
+}
+.freightbao>label{
+	font-size: 25px;
+	color: black;
+}
+/*.freightbao>p{
+	font-size: 15px;
+	color: gold;
+}*/
+/*发票信息*/
+.invoice{
+	padding-top: 20px;
+}
+.invoice-tit{
+	font-size: 20px;
+	font-family:"bradley hand itc";
+	font-weight: bold;
+}
+.invoice .invoice-udate{
+	text-decoration: none;
+}
+.invoice-content{
+	height: 50px;
+	border: 1px solid darkgrey;
+}
+.invoice-contentone{
+	margin-top: 20px;
+}
+.invoice .invoice-content .invoice-contentone .contentone{
+	width: 60px;
+	height: 30px;
+	margin-left: 150px;
+}
+
+ .contenttwo {
+	color: royalblue;
+}
+/*结算信息*/
+.mycost{
+	margin-top: 30px ;
+}
+.mycost-tit{
+	font-size: 20px;
+	font-family:"bradley hand itc";
+	font-weight: bold;
+}
+.showcostfirst{
+	height:160px ;
+	border: 1px solid grey;
+}
+.showcost{
+	margin-right: 20px;
+}
+.showcost .discounts{
+	margin-top: 20px;
+}
+.discounts-add{
+	font-size: 25px ;
+	margin-left: 80px;
+	color: green;
+	cursor: pointer;
+}
+.discounts-add1{
+	color: black;
+}
+.countcost{
+	
+}
+.shop-price{
+	
+}
+.cc{
+	font-size: 16px;
+	color: gold;
+}
+.shop-price .pricenum , .pricenumtwo , .pricenumthree{
+	font-size: 20px ;
+}
+.payment{
+	
+}
+.paymentone{
+	margin-top: 20px;
+	margin-right: 25px;
+}
+.pay-price , .paytit , .paynum{
+    font-size: 30px;
+    color: gold;
+}
+.payment .paymentone .pay-btn{
+	/*width: 90px;
+	height: 50px;*/
+	margin-bottom: 20px;
+	background: gold;
+	float: right;
+	font-size: 40px;
+	color: whitesmoke;
+	border: none;
+	outline-color: goldenrod;
+	opacity: 1;
+}
+.payment .paymentone .pay-btn:hover{
+	opacity: 0.7;
+}
+
+/*模态框*/
+/*增加收货地址*/
+#myModal-increase{
+	padding-top: 80px;
+}
+#myModal-increase .myadd-increase{
+	width: 800px;
+}
+#myModal-increase .myadd-increase .modal-content{
+	
+}
+#myModal-increase .myadd-increase .modal-header{
+	position: relative;
+}
+#myModal-increase .myadd-increase .modal-header .modalincre-title{
+  font-size: 17px;
+}
+#myModal-increase .myadd-increase .modal-header .modalincre-close{
+  position: absolute;
+  top: 3px;
+  left: 765px;
+  font-size: 25px;
+  cursor: pointer;
+}
+/*输入框*/
+/*名字*/
+.increase-info{
+	margin-left: 80px;
+}
+.increase-info .input-group{
+	position: relative;
+	margin-bottom: 20px;
+}
+.increase-info .input-group >label{
+	width: 80px;
+	margin-right: 20px;
+	color: firebrick;
+}
+.increase-info .input-group> .incredetailed{
+	width: 280px;
+}
+.increase-info  .input-group p{
+	width: 100%;
+	position: absolute;
+	top:2px;
+	left: 310px;
+	display: none;
+}
+.increase-info .input-group .increasesucces-one , .increase-info  .input-group .increasesucces-two , .increase-info .input-group .increasesucces-three{
+	width: 18px; 
+	height: 18px;
+	background: url(../img/tipIcon.png) -33px 0px no-repeat;
+	display: none;
+}
+.increase-info .input-group .incredetailederr-three , .increase-info .input-group .increasesucces-three{
+	top:2px;
+	left: 410px;
+	display: none;
+}
+.increase-info .input-group p>span{
+	position: absolute;
+	width: 20px;
+	height: 16px;
+	top: 2px;
+	left: -20px;
+	display: block;
+	background: url(../img/tipIcon.png) -34px -34px no-repeat;
+}
+
+.increase-info .saveincrease{
+	
+}
+.increase-info .saveincrease .savemyincrease{
+	background: goldenrod;
+	margin-left: 280px;
+}
+
+
+/*修改收货地址*/
+#myModal-update{
+	padding-top: 80px;
+}
+#myModal-update .myadd-update{
+	width: 800px;
+}
+#myModal-update .myadd-update .modal-content{
+	
+}
+#myModal-update .myadd-update .modal-header{
+	position: relative;
+}
+#myModal-update .myadd-update .modal-header .modalup-title{
+  font-size: 17px;
+}
+#myModal-update .myadd-update .modal-header .modalup-close{
+  position: absolute;
+  top: 3px;
+  left: 765px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.update-info{
+	margin-left: 70px;
+}
+.update-info .input-group{
+	position: relative;
+	margin-bottom: 20px;
+}
+.update-info .input-group >label{
+	width: 80px;
+	margin-right: 20px;
+	color: firebrick;
+}
+.input-group> .adrdetailed{
+	width: 280px;
+}
+.input-group p{
+	width: 100%;
+	position: absolute;
+	top:2px;
+	left: 310px;
+	display: none;
+}
+.input-group .mysucces-one , .input-group .mysucces-two , .input-group .mysucces-three{
+	width: 18px;
+	height: 18px;
+	background: url(../img/tipIcon.png) -33px 0px no-repeat;
+	display: none;
+}
+.input-group .detailederr-three , .input-group .mysucces-three{
+	top:2px;
+	left: 410px;
+	display: none;
+}
+
+.input-group p>span{
+	position: absolute;
+	width: 20px;
+	height: 16px;
+	top: 2px;
+	left: -20px;
+	display: block;
+	background: url(../img/tipIcon.png) -34px -34px no-repeat;
+}
+
+.saveaddr{
+	
+}
+.saveaddr .savemyaddr{
+	background: goldenrod;
+	margin-left: 280px;
+}
+
+
+/*支付页面*/
+.mypayment{
+	padding-top: 80px;
+}
+.mypayment-index {
+	width: 100%;
+	max-height: 900px;
+	background: rgb(242, 242, 242);
+}
+
+.mypayment-index .container {
+	position: relative;
+	width: 100%;
+	max-height: 900px;
+}
+.mypayment-conta {
+	position: relative;
+	max-width: 830px;
+	max-height: 800px;
+	margin: 40px auto;
+	background: white;
+	border: 1px solid whitesmoke;
+	z-index: 10;
+}
+.mypayment-conta .mytime{
+	margin-left: 20px;
+}
+.form-mypayment{
+	
+}
+.form-mypayment .mypay{
+	margin-right: 20px;
+	color:goldenrod;
+}
+.form-mypayment .mypay >span{
+	font-size: 30px ;
+	color:goldenrod;
+}
+.form-mypayment .payimg{
+	max-width: 630px;
+	max-height: 600px;
+	margin-left: 80px;
+	border: 1px solid gainsboro;
+	border-top: 2px solid gainsboro;
+}
+.form-mypayment>h5>a{
+	text-decoration: none;
+	margin-right:30px ;
+}
+.payimg img{
+	margin-left: 120px ;
+	max-width: 400px;
+	max-height: 400px;
+}
+
+
+/*提示*/
+#myModal-reminder{
+	padding-top: 80px;
+	background: rgba(255,255,255,0.4);
+}
+#myModal-reminder .prompt{
+width: 300px;
+height: 200px;
+border: 1px solid darkgrey;
+background: whitesmoke;
+}
+#myModal-reminder .prompt .modal-header{
+	border-bottom:2px solid white ;
+}
+#myModal-reminder .prompt .modal-body .containerfoot{
+	margin-top: 20px;
+	margin-left: 120px;
+}
+.containerfoot>button{
+	margin-right: 5px;
+	background: #095F8A;
+	color: white;
+}
+#myModal-reminder .prompt .modal-content .modal-header .titie{
+position: relative;
+width: 300px;
+height: 40px;
+background: ghostwhite;
+}
+#myModal-reminder .prompt .modal-header .titie .reminderclose{
+  position: absolute;
+  top: 2px;
+  left: 270px;
+  font-size: 25px;
+  cursor: pointer;
+ 
+}
+#myModal-reminder .prompt .modal-header .titie .reminderclose:hover{
+  color: green;
+}

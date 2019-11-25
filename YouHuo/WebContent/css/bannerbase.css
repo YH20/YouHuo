@@ -1,0 +1,77 @@
+/*传统轮播*/
+*{margin: 0px;padding: 0px;}
+a{text-decoration: none;}
+li{list-style:none;}
+img{border: 0px;vertical-align: bottom;}
+.banner{
+	width: 700px;height: 500px;
+	border: 2px solid yellow;
+	margin: 40px auto;
+	position: relative;
+	/*overflow: hidden;*/
+}
+
+.banner ul{
+}
+
+.banner ul li {
+	position: absolute;
+	left: 0px;top: 0px;
+	width: 700px;height: 500px;
+	opacity: 0;
+	/*兼容IE*/
+	filter: alpha(opacity:0);
+	}
+.banner ul li.active{
+	opacity: 1;
+	/*兼容IE*/
+	filter: alpha(opacity:100);
+}
+.banner>a{
+	width: 59px;height: 80px;
+	position: absolute;
+	top: 50%;margin-top: -40px;
+	opacity: 0.5;
+	/*兼容IE*/
+	filter: alpha(opacity=50);
+	z-index:11;
+}
+
+.banner>a:hover{
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+
+.prev{
+	background: url(../img/prev.png);
+	left: 0px;
+}
+
+.next{
+	background: url(../img/next.png);
+	right: 0px;
+}
+
+.number{
+	position: absolute;
+	left: 50%;margin-left: -75px;
+	bottom: 20px;
+	/*background: yellow;*/
+	z-index: 11;
+}
+
+.number span{
+	width: 20px;height: 20px;
+	display: inline-block;
+	background: #666;
+	color: white;
+	font-size: 12px;
+	border-radius: 50%;
+	text-align: center;
+	cursor: pointer;
+	margin: 0 5px;
+}
+
+.number span.current{
+	background: deepskyblue;
+}
