@@ -281,7 +281,7 @@ $(".reg-input-answer").focus(function(){
 	$(".reg-answerError1").css("color","green");
 	$(".reg-answerError1").show().siblings('p').hide();
 	var value=$(".rgister-pose").val();
-	if(value=="1"){
+	if(value=="0"){
 		$(".reg-poseError").show();
 		$('.rgister-pose').css('border', '1px solid red').siblings('span').css('border', '1px solid red');
 		regf4=false;
