@@ -41,5 +41,7 @@
 		<property name="automaticTestTable">Test</property>
 		<!-- 获取connnection时测试是否有效 -->
 		<property name="testConnectionOnCheckin">true</property>
+		<!-- 设置超时自动断开 -->
+		<property name="unreturnedConnectionTimeout">150</property>
 	</named-config>
 </c3p0-config>

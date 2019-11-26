@@ -26,17 +26,13 @@ public class CharaterEncodingFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
 			throws IOException, ServletException {
-		System.out.println("���������");
-		//ת����HTTPЭ��
 		HttpServletRequest request = (HttpServletRequest)arg0;
 		HttpServletResponse response = (HttpServletResponse)arg1;
-		//ת��
 		String method = request.getMethod();
 		if("POST".equalsIgnoreCase(method)) {
 			request.setCharacterEncoding(newEncoding);
 		}else{
 			Map<String, String[]> maps = request.getParameterMap();
-			System.out.println(maps);
 			Iterator<String[]> it = maps.values().iterator();
 			while(it.hasNext()) {
 				String[] strs = it.next();
@@ -46,14 +42,11 @@ public class CharaterEncodingFilter implements Filter{
 			}
 		}
 		response.setCharacterEncoding(newEncoding);
-		//����
 		arg2.doFilter(request, response);
-		System.out.println("������");
 	}
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		//���������ļ��и����ַ������ʽ
 		oldEncoding = arg0.getInitParameter("oldEncoding");
 		newEncoding = arg0.getInitParameter("newEncoding");
 		System.out.println(oldEncoding);
