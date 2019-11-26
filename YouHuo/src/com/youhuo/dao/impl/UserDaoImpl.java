@@ -35,7 +35,9 @@ public class UserDaoImpl implements UserDao{
 		PreparedStatement ps = null;
 		try {
 		  ps =	conn.prepareStatement(sql);
-		  ps.setString(1, user.getId());
+		  //用uuid
+//		  ps.setString(1, user.getId());
+		  ps.setString(1, StringHelper.getUUID());
 		  ps.setString(2, user.getUserName());
 		  ps.setString(3, user.getUserPass());
 		  ps.setString(4, user.getUserBirthday());
@@ -52,7 +54,6 @@ public class UserDaoImpl implements UserDao{
 		  //ps.setString(13, user.getCreated());
 		  ps.setString(13, StringHelper.getCurrentFormatDate());
 		  ps.setString(14, user.getNewvalue());
-		  
 		 int n =  ps.executeUpdate();
 		 if(n>0) {
 			 return true;
