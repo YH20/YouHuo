@@ -13,7 +13,7 @@ import net.sf.json.JSONArray;
 import com.youhuo.util.Address;
 
 /**
- * ��ַ��ѯServlet
+ * 地址查询Servlet
  * @author DQing
  * Servlet implementation class addressServelt
  */
@@ -33,7 +33,7 @@ public class addressServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("����servlet");
+		System.out.println("进入servlet");
 		String proname1 = request.getParameter("province");
 		String cityname1 = request.getParameter("city");
 		System.out.println("pro"+proname1+"===== city"+cityname1);
@@ -43,7 +43,7 @@ public class addressServlet extends HttpServlet {
 		System.out.println("pro"+proname1+"    =====    city"+cityname1+"=");
 		Address adress=new Address();
 		List list=adress.getAdress(proname1, cityname1);
-		JSONArray jsonArray = JSONArray.fromObject(list);// ��Listת����json���鴫��ǰ̨
+		JSONArray jsonArray = JSONArray.fromObject(list);// 将List转化成json数组传到前台
 		response.getOutputStream().write(jsonArray.toString().getBytes("utf-8"));
 	}
 

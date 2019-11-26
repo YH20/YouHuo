@@ -18,30 +18,32 @@ import org.jdom.input.SAXBuilder;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import Dq.JDOM.Address;
 /**
- * jdom提取XML的地址ַ
+ * jdom解析XML,读取中国省市区三级联动地址
  * @author DQing
  *
  */
 public class Address {
 	public List getAdress(String proname,String cityname1){
 		System.out.println("proname:"+proname+"cityname1:"+cityname1);
-		//1.����SAXBuilder����
+		//1.创建SAXBuilder对象
         SAXBuilder saxBuilder = new SAXBuilder();
         InputStream is;
         Document document;
         Element CNaddress;
         List<Element> provinceElement;
         List list=new ArrayList();
-        list.add("��ѡ��ǰ�������");
+        list.add("请选择当前项····");
 		try {
-			//2.����������
+			//2.创建输入流
 			is=Address.class.getResourceAsStream("/CNAdress.xml");
-			//3.�����������ص�build��
+			//3.将输入流加载到build中
 			document = saxBuilder.build(is);
-	        //4.��ȡ���ڵ�
+	        //4.获取根节点
 			CNaddress=document.getRootElement();
-	        //5.��ȡ�ӽڵ�
+	        //5.获取子节点
 			provinceElement = CNaddress.getChildren();
 			
 			List<Attribute> provinceName;
@@ -49,21 +51,21 @@ public class Address {
 			List<Attribute> cityName;
 	        for (Element provinces: provinceElement) {
 	        	provinceName = provinces.getAttributes();
-	            //��ӡʡ��
+	            //打印省名
 	            for (Attribute provincename : provinceName) {
-	            	//�õ�ǰʡ��������
+	            	//拿当前省的所有市
 	            	if (proname.equals(provincename.getValue())) {
 	            		cityElement = provinces.getChildren();
 	                	for (Element city : cityElement) {
 	                		cityName = city.getAttributes();
-	                		//��ӡ������
+	                		//打印市名称
 	                		for (Attribute cityname : cityName) {
 	                			if (cityname1.equals(cityname.getValue())) {
 	                				List<Element> countyElement = city.getChildren();
-	    	    	                for (Element county : countyElement) {/*����*/
+	    	    	                for (Element county : countyElement) {/*拿区*/
 	    	    	                	list.add(county.getValue());
 	    	    					}
-								}else if(cityname1!=null && cityname1.equals("")){/*����*/
+								}else if(cityname1!=null && cityname1.equals("")){/*拿市*/
 									list.add(cityname.getValue());
 								}
 	                		}            		
