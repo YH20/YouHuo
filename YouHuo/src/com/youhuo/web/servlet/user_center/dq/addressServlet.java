@@ -17,7 +17,7 @@ import com.youhuo.util.Address;
  * @author DQing
  * Servlet implementation class addressServelt
  */
-@WebServlet(name = "address", urlPatterns = { "/address" })
+@WebServlet(name = "address", urlPatterns = { "/dqaddress" })
 public class addressServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,7 +33,7 @@ public class addressServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("进入servlet");
+		System.out.println("进入servlet..............111111111");
 		String proname1 = request.getParameter("province");
 		String cityname1 = request.getParameter("city");
 		System.out.println("pro"+proname1+"===== city"+cityname1);
