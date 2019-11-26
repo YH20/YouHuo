@@ -1,4 +1,4 @@
-/*基础样式*/
+/*基本样式*/
 *{margin: 0px;padding: 0px;}
 a{text-decoration: none;}
 li{list-style:none;}
@@ -197,17 +197,17 @@ nav div #change{
 	margin-top: 4px;
 }
 .wb-order:before {
-    content: '';
+    content: '飬�';
 }
 
 /**
- * 以下内容为底部基本样式
+ * 浠ヤ笅鍐呭涓哄簳閮ㄥ熀鏈牱寮�
  */
 
 body{
 	background: #EDEDED;
 }
-/*底部导航*/
+/*搴曢儴瀵艰埅*/
 .foot-nav-list{
 	padding: 70px 0 32px;
     background-color: #4e4e4e;
@@ -301,7 +301,7 @@ body{
 	font-weight: 400;
 }
 
-/*返回顶部*/
+/*杩斿洖椤堕儴*/
 .back-top-met{
 	display: none;
 	position: fixed;

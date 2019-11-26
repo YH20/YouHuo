@@ -46,6 +46,53 @@ $('.input-group .form-user').focus(function() {
 $('.input-group .form-user').blur(function() {
 	//	失去焦点
 //	验证用户是否存在
+	//拿到用户的值
+	var users = $(this).val();
+		userName = users;
+		//	判断纯数字
+		var reg = /\D/g;
+		if(users == '') {
+			$(this).siblings('.userError').show();
+			$(this).css('border', '1px solid red');
+			$(this).siblings('span').css('border', '1px solid red');
+			regf = false;
+			return
+		} else if(leng(users) < 2 || leng(users) > 12) {
+			$(this).siblings('.userError1').show();
+			$(this).css('border', '1px solid red');
+			$(this).siblings('span').css('border', '1px solid red');
+			regf = false;
+			return
+		} else if(!reg.test(users)) {
+			$(this).siblings('.userError2').show();
+			$(this).css('border', '1px solid red');
+			$(this).siblings('span').css('border', '1px solid red');
+			regf = false;
+			return
+		} else if(decide(users)) {
+			$(this).siblings('.userError2').show();
+			$(this).css('border', '1px solid red');
+			$(this).siblings('span').css('border', '1px solid red');
+			regf = false;
+			return
+		}
+		regf = true;
+		$(this).siblings('.correct').show();
+		$(this).css('border', '1px solid #ccc');
+		//	验证用户存在
+		lock1();
+	    var user=$(".form-user").val();
+//	    $.ajax({
+//	    	type:"post",
+//	    	url:"/login",
+//	    	data:"users"+user,
+//	    	contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+//	    	success:function(result){
+//	    		
+//	    	}
+//	    });
+	
+	
 });
 $('.input-group .form-user').keydown(function() {
 	//	获得焦点清楚其他提示
@@ -92,7 +139,7 @@ $('.input-group .form-user').keyup(function() {
 		return
 	}
 	regf = true;
-	$(this).siblings('.correct').show();
+	
 	$(this).css('border', '1px solid #ccc');
 
 	//	验证用户存在
@@ -234,7 +281,7 @@ $(".reg-input-answer").focus(function(){
 	$(".reg-answerError1").css("color","green");
 	$(".reg-answerError1").show().siblings('p').hide();
 	var value=$(".rgister-pose").val();
-	if(value=="请设置密保问题"){
+	if(value=="1"){
 		$(".reg-poseError").show();
 		$('.rgister-pose').css('border', '1px solid red').siblings('span').css('border', '1px solid red');
 		regf4=false;
@@ -472,6 +519,7 @@ function logevent1(user, that) {
 		return
 	}
 	$(that).css('border', '1px solid #ccc');
+	$(that).siblings('.clear').show();
 	//	记住找账号逻辑，判断账号存在的逻辑
 	//  设置标记为真
 	flog = true;
@@ -518,6 +566,7 @@ function logpassevent1(pass, that) {
 		flog1 = false;
 		return
 	}
+	$(that).siblings('.clear1').show();
 	flog1 = true;
 	lock();
 	$(that).css('border', '1px solid #ccc');
