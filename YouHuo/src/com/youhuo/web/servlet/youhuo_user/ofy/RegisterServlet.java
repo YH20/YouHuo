@@ -52,7 +52,6 @@ public class RegisterServlet extends HttpServlet {
 		  byte[] b=new byte[fis.available()];
 		  fis.read(b);
 		  String s=new String(b);
-//		  fis.toString();
 		  System.out.println(s);
 	 }
 	   
