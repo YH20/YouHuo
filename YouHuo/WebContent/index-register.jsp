@@ -168,7 +168,7 @@
 			<div class="register-index">
 				<div class="container">
 					<div class="register-conta">
-					   <form action="" method="" >
+					   <form action="register" method="" >
 						<div class="form-register">
 							<h2 class="text-center">会员注册</h2>
 							<!--头像-->
@@ -196,7 +196,8 @@
 							<!--密码-->
 							<div class="input-group">
 								<span class="input-group-addon glyphicon glyphicon-lock"></span>
-								<input type="password" name="registerpass" id="" value="" class="form-control form-pass input-lg" placeholder="密码" />
+								<input type="hidden" id="passhide" name="registerpass"/>
+								<input type="password"  id="" value="" class="form-control form-pass input-lg" placeholder="密码" />
 								<p class="passError"><img src="img/eer.png"/>此项不能为空</p>
 								<p class="passError1"><img src="img/eer.png"/>密码必须在6-30个字符之间 </p>
 								<p class="passError2"><img src="img/eer.png"/>密码不允许有空格 </p>
@@ -393,3 +394,4 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/user.js"></script>
+<script type="text/javascript" src="js/md5.js" ></script>

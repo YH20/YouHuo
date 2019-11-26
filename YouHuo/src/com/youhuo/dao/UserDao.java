@@ -17,8 +17,9 @@ public interface UserDao {
 	 * @param user
 	 * @return
 	 */
-	public boolean  insertUser(Connection conn,User user);
+	 
 	
+	public boolean  insertUser(Connection conn,User user);
 	/**
 	 * 删除用户
 	 * @param conn

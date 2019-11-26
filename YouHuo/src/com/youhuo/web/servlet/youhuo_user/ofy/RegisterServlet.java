@@ -27,7 +27,15 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+//注册
+	   String users=request.getParameter("registeruser");
+	   String pass=request.getParameter("registerpass");
+	   String pose=request.getParameter("registerpose");
+	   String anwer=request.getParameter("registeranswer");
+	   String cilentCode=request.getParameter("registercode");
+	   String serverCode=request.getSession().getAttribute("getCode").toString();
+	   System.out.println("===="+users);
+	   System.out.println("===="+pass);
 	}
 
 	/**
@@ -35,7 +43,7 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doGet(request, response);
 	}
 
 }

@@ -347,6 +347,16 @@ $('.input-group .form-messge').keyup(function() {
 		regf3 = false;
 		return
 	}
+	
+//    $.ajax({
+//	type:"post",
+//	url:"checkcode",
+//	data:"regcode="+info1,
+//	contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+//	success:function(result){
+//	  console.log(result);
+//	  }
+//    });
 	//	判断验证码输入正确
 	regf3 = true;
 	$(this).css('border', '1px solid #ccc');
@@ -366,45 +376,52 @@ $('.register-btn').click(function() {
 	lock1();
 	var randommess = $('#register-random').val();
 	var info1 = $('.input-group .form-messge').val();
+//	md5密码加密
+    var pass=$('.form-pass').val();
+    pass=calcMD5(pass);
+    $('#passhide').val(pass);
 //	随机验证码验证成功可以去获取数据
-	if(disrandom(info1, randommess)) {
-		//	注册成功与失败返回验证
-		$.post('http://www.wjian.top/shop/api_user.php', {
-			status: 'register',
-			username: userName,
-			password: pwd,
-		}, function(re) {
-			console.log(JSON.parse(re));
-			//		注册返回失败
-			if(JSON.parse(re).code!= 0) {
-				$('.input-group .userError3').show();
-				$('.form-user').focus();
-				$('.form-user').select();
-				$('.form-user').css('border', '1px solid red');
-				//	每点击一次随机验证码重新调用
-                $('#register-random').val(randommessage());
-				return;
-			}
-			//		注册成功写一个窗框
-			//		注册成功
-			$('.conta-skip').show();
-			timeA = setInterval(function() {
-				time--;
-				if(time == 0) {
-//					跳转
-					window.location.href = 'index-login.html';
-					stop();
-				}
-				$('.load-conta>h3').html(time + 's');
-				play();
-			}, 1000);
-		});
-	} else{//随机验证码验证失败
-		$('.input-group .form-messge').siblings('span').css('border', '1px solid red');
-		$('.input-group .form-messge').siblings('a').css('border', '1px solid red');
-		$('.input-group .form-messge').css('border', '1px solid red');
-		$('.input-group .mes1Error').show();
-	}
+    
+	
+	
+//	if(disrandom(info1, randommess)) {
+//		//	注册成功与失败返回验证
+//		$.post('http://www.wjian.top/shop/api_user.php', {
+//			status: 'register',
+//			username: userName,
+//			password: pwd,
+//		}, function(re) {
+//			console.log(JSON.parse(re));
+//			//		注册返回失败
+//			if(JSON.parse(re).code!= 0) {
+//				$('.input-group .userError3').show();
+//				$('.form-user').focus();
+//				$('.form-user').select();
+//				$('.form-user').css('border', '1px solid red');
+//				//	每点击一次随机验证码重新调用
+//                $('#register-random').val(randommessage());
+//				return;
+//			}
+//			//		注册成功写一个窗框
+//			//		注册成功
+//			$('.conta-skip').show();
+//			timeA = setInterval(function() {
+//				time--;
+//				if(time == 0) {
+////					跳转
+//					window.location.href = 'index-login.html';
+//					stop();
+//				}
+//				$('.load-conta>h3').html(time + 's');
+//				play();
+//			}, 1000);
+//		});
+//	} else{//随机验证码验证失败
+//		$('.input-group .form-messge').siblings('span').css('border', '1px solid red');
+//		$('.input-group .form-messge').siblings('a').css('border', '1px solid red');
+//		$('.input-group .form-messge').css('border', '1px solid red');
+//		$('.input-group .mes1Error').show();
+//	}
 });
 
 //注册成功弹出窗口内容
