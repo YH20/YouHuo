@@ -293,9 +293,9 @@
 										<div class="am-form-group">
 											<label for="user-address" class="am-form-label">所在地</label>
 											<div class="am-form-content address">
-												<select data-am-selected id="yh_province"></select>
-												<select data-am-selected id="yh_city"></select>
-												<select data-am-selected id="yh_county"></select>
+												<select id="yh_province"></select>
+												<select id="yh_city"></select>
+												<select id="yh_county"></select>
 											</div>
 										</div>
 

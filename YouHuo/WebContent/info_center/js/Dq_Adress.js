@@ -26,8 +26,8 @@
 	function getAddress(level,selectProvince,selectcity){
 		var str;
 		$.ajax({
-			type : "get",
-			url : "http://localhost/YouHuo/dqaddress",
+			type : "post",
+			url : "http://localhost:8080/YouHuo/dqaddress",
 			data : "province=" + selectProvince+"&city=" + selectcity,
 			success : function(result) {
 				var parsedJson = JSON.parse(result);
