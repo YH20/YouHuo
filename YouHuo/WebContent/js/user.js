@@ -323,13 +323,16 @@ $('.input-group .form-messge').keydown(function() {
 	$(this).siblings('a').css('border', '1px solid #ccc');
 });
 //点击按钮产生随机验证码
-$('#register-random').click(function() {
-	$(this).val(randommessage());
-	$('.input-group .form-messge').css('border', '1px solid #ccc')
-	$('.input-group .form-messge').siblings('mesError').hide();
-	$('.input-group .form-messge').siblings('span').css('border', '1px solid #ccc');
-	$('.input-group .form-messge').siblings('a').css('border', '1px solid #ccc');
-});
+//$('#register-random').click(function() {
+//	$(this).val(randommessage());
+//	$('.input-group .form-messge').css('border', '1px solid #ccc')
+//	$('.input-group .form-messge').siblings('mesError').hide();
+//	$('.input-group .form-messge').siblings('span').css('border', '1px solid #ccc');
+//	$('.input-group .form-messge').siblings('a').css('border', '1px solid #ccc');
+//});
+function flushCode(obj){
+	obj.src = "imageServlet?id="+new Date().getTime();
+}
 
 //验证码按下
 $('.input-group .form-messge').keyup(function() {

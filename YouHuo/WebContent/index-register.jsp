@@ -240,7 +240,7 @@
 							<div class="input-group">
 								<span class="input-group-addon glyphicon glyphicon-file"></span>
 								<input type="text" name="registercode" id="" value="" class="form-control form-messge input-lg" placeholder="验证码" />
-							    <a class="btn input-group-btn"><img  name="" id="register-random" value="" class="" src="dq_img/bg1.gif" /></a>
+							    <a class="btn input-group-btn"><img  name="" id="register-random" onclick="flushCode(this)" src="imageServlet" /></a>
 								<p class="mesError"><img src="img/eer.png"/>此项不能为空</p>
 								<p class="mes1Error"><img src="img/eer.png"/>验证码错误!</p>
 							</div>
