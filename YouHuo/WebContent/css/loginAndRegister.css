@@ -1,4 +1,4 @@
-/*用户注册*/
+/*鐢ㄦ埛娉ㄥ唽*/
 
 p>img{
 	width: 20px;
@@ -33,7 +33,7 @@ p>img{
 	animation: mymove 4s infinite;
 }
 /*@keyframes mymove{
-	/*设置起始  过程  终点*/
+	/*璁剧疆璧峰  杩囩▼  缁堢偣*/
 	 0%{
 		border-radius:50%;
 	}
@@ -113,14 +113,14 @@ p>img{
 	margin: 40px auto;
 	background: white;
 	border: 1px solid whitesmoke;
-	animation: move 3s ease;
+	animation: rgmove 3s ease;
 	z-index: 10;
 }
 
-@keyframes move {
-	/*设置起始  过程  终点*/
+@keyframes rgmove {
+	/*璁剧疆璧峰  杩囩▼  缁堢偣*/
 	from {
-		width: 90px;
+		width: 280px;
 	}
 	to {
 		width: 800px;
@@ -191,15 +191,9 @@ p>img{
 	background: whitesmoke;
 }
 
-.form-register .input-group>a input {
+.form-register .input-group>a #register-random {
 	width: 190px;
 	height: 32px;
-	font-size: 30px;
-	line-height: 10px;
-	font-family: "arial, helvetica, sans-serif";
-	font-style: oblique;
-	color: coral;
-	background: whitesmoke;
 }
 
 .register-btn {
@@ -232,7 +226,7 @@ p>img{
 .register-conta .form-register h5>a:hover {
 	opacity: 1;
 }
-/*头像*/
+/*澶村儚*/
 .form-register .register-photo{
 	margin-top: 10px;
 	position: relative;
@@ -264,7 +258,7 @@ p>img{
 	top: 54px;
 	display: none;
 }
-/*密保问题*/
+/*瀵嗕繚闂*/
 .register-question{
 	
 }
@@ -274,7 +268,7 @@ p>img{
 
 
 
-/*登录*/
+/*鐧诲綍*/
 
 .login{
 	padding: 80px;
@@ -307,9 +301,9 @@ p>img{
 }
 
 @keyframes logmove {
-	/*设置起始  过程  终点*/
+	/*璁剧疆璧峰  杩囩▼  缁堢偣*/
 	from {
-		width: 130px;
+		width: 230px;
 	}
 	to {
 		width: 800px;
@@ -479,7 +473,7 @@ p>img{
 }
 
 
-/*忘记密码*/
+/*蹇樿瀵嗙爜*/
 .find-pass{
 	padding-top: 80px;
 }
@@ -506,7 +500,7 @@ p>img{
 }
 
 @keyframes move2 {
-	/*设置起始  过程  终点*/
+	/*璁剧疆璧峰  杩囩▼  缁堢偣*/
 	from {
 		width:150px;
 	}
@@ -572,7 +566,7 @@ p>img{
 	border: 1px solid #ccc;
 	background: whitesmoke;
 }
-/*验证码*/
+/*楠岃瘉鐮�*/
 .form-find .input-group>a input {
 	width: 120px;
 	height: 32px;
@@ -655,7 +649,7 @@ p>img{
 	opacity: 1;
 }
 
-/*重置密码*/
+/*閲嶇疆瀵嗙爜*/
 
 
 
@@ -687,7 +681,7 @@ p>img{
 }
 
 @keyframes move {
-	/*设置起始  过程  终点*/
+	/*璁剧疆璧峰  杩囩▼  缁堢偣*/
 	from {
 		width: 120px;
 	}
@@ -768,7 +762,7 @@ p>img{
 }
 
 
-/*订单*/
+/*璁㈠崟*/
 .my-order{
 	padding-top: 90px;
 	background: rgb(242, 242, 242);
