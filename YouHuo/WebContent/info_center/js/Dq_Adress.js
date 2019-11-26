@@ -27,7 +27,7 @@
 		var str;
 		$.ajax({
 			type : "get",
-			url : "address",
+			url : "http://localhost/YouHuo/dqaddress",
 			data : "province=" + selectProvince+"&city=" + selectcity,
 			success : function(result) {
 				var parsedJson = JSON.parse(result);
