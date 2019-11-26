@@ -19,7 +19,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /**
- * jdom����XML,��ȡ�й�ʡ��������������ַ
+ * jdom提取XML的地址ַ
  * @author DQing
  *
  */
