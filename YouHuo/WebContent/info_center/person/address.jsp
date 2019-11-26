@@ -293,17 +293,17 @@
 										<div class="am-form-group">
 											<label for="user-address" class="am-form-label">所在地</label>
 											<div class="am-form-content address">
-												<select id="yh_province"></select>
-												<select id="yh_city"></select>
-												<select id="yh_county"></select>
+												<select title="优先选择省" id="yh_province"></select>
+												<select title="其次选择市" id="yh_city"></select>
+												<select title="最后选择地区" id="yh_county"></select>
 											</div>
 										</div>
 
 										<div class="am-form-group">
 											<label for="user-intro" class="am-form-label">详细地址</label>
 											<div class="am-form-content">
-												<textarea class="" rows="3" id="user-intro" placeholder="输入详细地址"></textarea>
-												<small>100字以内写出你的详细地址...</small>
+												<textarea class="" rows="3" id="user-intro" placeholder="输入详细地址" style="max-height: 96px;" maxlength="128" title="此区域最长输入内容为128······"></textarea>
+												<small>100字以内写出你的详细地址····</small>
 											</div>
 										</div>
 

@@ -282,12 +282,13 @@
 			<County>左云县</County>
 			<County>山西大同经济开发区</County>
 		</City>
-		<City cityName="阳泉市" />
-		<County>城区</County>
-		<County>矿区</County>
-		<County>郊区</County>
-		<County>平定县</County>
-		<County>盂县</County>
+		<City cityName="阳泉市">
+			<County>城区</County>
+			<County>矿区</County>
+			<County>郊区</County>
+			<County>平定县</County>
+			<County>盂县</County>
+		</City>
 		<City cityName="长治市">
 			<County>潞州区</County>
 			<County>上党区</County>
