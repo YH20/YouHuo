@@ -33,14 +33,14 @@ public class addressServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("进入servlet..............111111111");
+		System.out.println("进入三级联动地址Servlet");
 		String proname1 = request.getParameter("province");
 		String cityname1 = request.getParameter("city");
-		System.out.println("pro"+proname1+"===== city"+cityname1);
+		System.out.println("打印前端传来的省："+proname1+"市city:"+cityname1);
 		if (cityname1==null) {
 			cityname1="";
 		}
-		System.out.println("pro"+proname1+"    =====    city"+cityname1+"=");
+		System.out.println("处理前端传来的省："+proname1+"市city:"+cityname1);
 		Address adress=new Address();
 		List list=adress.getAdress(proname1, cityname1);
 		JSONArray jsonArray = JSONArray.fromObject(list);// 将List转化成json数组传到前台
