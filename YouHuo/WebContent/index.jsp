@@ -156,17 +156,17 @@
 						<div class="banner-footer">
 							<ul class="banner-action">
 								<li class="active">
-									<a href="">
-										<img class="cover-image" id="img-action" src="img/1567239403.jpg" />
+									<a href="javascript:;">
+										<img class="cover-image" id="img-action" src="img/2019112601.jpg" />
 									</a>
 								</li>
 								<li class="">
-									<a href="">
-										<img class="cover-image" id="img-action" src="img/1567419200.jpg" />
+									<a href="javascript:;">
+										<img class="cover-image" id="img-action" src="img/2019112602.png" />
 									</a>
 								</li>
 								<li>
-									<a href="">
+									<a href="javascript:;">
 										<img class="cover-image" id="img-action" src="img/1567239909.jpg" />
 									</a>
 								</li>
@@ -948,7 +948,7 @@
 			//渲染数据
 			for(var i = 0;i<obj.data.length;i++){
 //				console.log('进来了');
-			var str = `
+		var str =  `
 				<li class="item col-lg-3 col-md-6 col-xs-6">
 					<div class="card">
 						<ul class="card-img">
