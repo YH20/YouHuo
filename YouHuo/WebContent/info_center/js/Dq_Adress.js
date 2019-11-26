@@ -26,7 +26,7 @@
 	function getAddress(level,selectProvince,selectcity){
 		var str;
 		$.ajax({
-			type : "post",
+			type : "get",
 			url : "address",
 			data : "province=" + selectProvince+"&city=" + selectcity,
 			success : function(result) {
