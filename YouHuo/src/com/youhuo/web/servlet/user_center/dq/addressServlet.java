@@ -1,4 +1,4 @@
-package Dq.servlet;
+package com.youhuo.web.servlet.user_center.dq;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
-import com.youhuo.util.Address.java;
+import com.youhuo.util.Address;
 
 /**
- * µØÖ·²éÑ¯Servlet
+ * ï¿½ï¿½Ö·ï¿½ï¿½Ñ¯Servlet
  * @author DQing
  * Servlet implementation class addressServelt
  */
@@ -33,7 +33,7 @@ public class addressServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("½øÈëservlet");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½servlet");
 		String proname1 = request.getParameter("province");
 		String cityname1 = request.getParameter("city");
 		System.out.println("pro"+proname1+"===== city"+cityname1);
@@ -43,7 +43,7 @@ public class addressServlet extends HttpServlet {
 		System.out.println("pro"+proname1+"    =====    city"+cityname1+"=");
 		Address adress=new Address();
 		List list=adress.getAdress(proname1, cityname1);
-		JSONArray jsonArray = JSONArray.fromObject(list);// ½«List×ª»¯³ÉjsonÊý×é´«µ½Ç°Ì¨
+		JSONArray jsonArray = JSONArray.fromObject(list);// ï¿½ï¿½List×ªï¿½ï¿½ï¿½ï¿½jsonï¿½ï¿½ï¿½é´«ï¿½ï¿½Ç°Ì¨
 		response.getOutputStream().write(jsonArray.toString().getBytes("utf-8"));
 	}
 

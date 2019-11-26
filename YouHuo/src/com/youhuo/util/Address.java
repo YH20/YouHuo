@@ -1,4 +1,4 @@
-package Dq.JDOM;
+package com.youhuo.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,29 +19,29 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /**
- * jdom½âÎöXML,¶ÁÈ¡ÖÐ¹úÊ¡ÊÐÇøÈý¼¶Áª¶¯µØÖ·
+ * jdomï¿½ï¿½ï¿½ï¿½XML,ï¿½ï¿½È¡ï¿½Ð¹ï¿½Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·
  * @author DQing
  *
  */
 public class Address {
 	public List getAdress(String proname,String cityname1){
 		System.out.println("proname:"+proname+"cityname1:"+cityname1);
-		//1.´´½¨SAXBuilder¶ÔÏó
+		//1.ï¿½ï¿½ï¿½ï¿½SAXBuilderï¿½ï¿½ï¿½ï¿½
         SAXBuilder saxBuilder = new SAXBuilder();
         InputStream is;
         Document document;
         Element CNaddress;
         List<Element> provinceElement;
         List list=new ArrayList();
-        list.add("ÇëÑ¡Ôñµ±Ç°Ïî¡¤¡¤¡¤¡¤");
+        list.add("ï¿½ï¿½Ñ¡ï¿½ï¿½Ç°ï¿½î¡¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		try {
-			//2.´´½¨ÊäÈëÁ÷
+			//2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			is=Address.class.getResourceAsStream("/CNAdress.xml");
-			//3.½«ÊäÈëÁ÷¼ÓÔØµ½buildÖÐ
+			//3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½buildï¿½ï¿½
 			document = saxBuilder.build(is);
-	        //4.»ñÈ¡¸ù½Úµã
+	        //4.ï¿½ï¿½È¡ï¿½ï¿½ï¿½Úµï¿½
 			CNaddress=document.getRootElement();
-	        //5.»ñÈ¡×Ó½Úµã
+	        //5.ï¿½ï¿½È¡ï¿½Ó½Úµï¿½
 			provinceElement = CNaddress.getChildren();
 			
 			List<Attribute> provinceName;
@@ -49,21 +49,21 @@ public class Address {
 			List<Attribute> cityName;
 	        for (Element provinces: provinceElement) {
 	        	provinceName = provinces.getAttributes();
-	            //´òÓ¡Ê¡Ãû
+	            //ï¿½ï¿½Ó¡Ê¡ï¿½ï¿½
 	            for (Attribute provincename : provinceName) {
-	            	//ÄÃµ±Ç°Ê¡µÄËùÓÐÊÐ
+	            	//ï¿½Ãµï¿½Ç°Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	            	if (proname.equals(provincename.getValue())) {
 	            		cityElement = provinces.getChildren();
 	                	for (Element city : cityElement) {
 	                		cityName = city.getAttributes();
-	                		//´òÓ¡ÊÐÃû³Æ
+	                		//ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	                		for (Attribute cityname : cityName) {
 	                			if (cityname1.equals(cityname.getValue())) {
 	                				List<Element> countyElement = city.getChildren();
-	    	    	                for (Element county : countyElement) {/*ÄÃÇø*/
+	    	    	                for (Element county : countyElement) {/*ï¿½ï¿½ï¿½ï¿½*/
 	    	    	                	list.add(county.getValue());
 	    	    					}
-								}else if(cityname1!=null && cityname1.equals("")){/*ÄÃÊÐ*/
+								}else if(cityname1!=null && cityname1.equals("")){/*ï¿½ï¿½ï¿½ï¿½*/
 									list.add(cityname.getValue());
 								}
 	                		}            		
