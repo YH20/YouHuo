@@ -23,7 +23,7 @@
 			<nav class="navbar navbar-default" data-spy="affix" data-offset-top="195" style="margin-bottom: 0px;">
 				<!--内容-->
 				<div class="container">
-					<div class="row">
+					<div class="">
 						<!--logo 品牌-->
 						<div class="navbar-header">
 							<a class="navbar-brand" href="" style="display: block;">
@@ -129,13 +129,15 @@
 						<div class="navbar-nav navbar-left member">
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
-											<div class="navlogin">
-												<a class="navbar-brand" href="index-login.jsp" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
+											<div class="navlogin" >
+												<a class="navbar-brand" id="navbarLogin" href="/YouHuo/index-login.jsp"  title="登录">
+													<span class="glyphicon glyphicon-user"></span>
+												</a>
 											</div>
 										</li>
 										<li calss='shopcarli'>
 											<div class="navshopcart">
-												<a class="navbar-brand" href="/youhuo/shopcar.jsp" title="购物车">
+												<a class="navbar-brand" href="/YouHuo/shopcar.jsp" title="购物车">
 													<span class="glyphicon glyphicon-shopping-cart"></span>
 													<span class="badge">0</span>
 												</a>
