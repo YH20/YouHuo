@@ -12,7 +12,6 @@
 		<link rel="stylesheet" href="/YouHuo/css/index-style.css" type="text/css" />
 		<link rel="stylesheet" href="/YouHuo/css/font-awesome.min.css" type="text/css" />
 	</head>
-
 	<body>
 		<!--加载界面-->
 		<header class="top">
