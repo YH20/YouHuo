@@ -1,8 +1,60 @@
 //首页js
+
+//打开就要加载	
+	
+//	getShowGoodsList(5,1);
+//
+////请求数据的商品集合封装函数
+//	function getShowGoodsList(nums,type){
+//		$.ajax({
+//			url:'http://localhost/YouHuo/showGoods',
+//			data:{"nums":nums,"type":type},
+//			dataType:'json',
+//			type:'POST',
+//			success:function(result) {
+//				console.log(result.code);
+//				if(result.code!=0){
+//					return;
+//				}
+//				var list = new Array();
+//				 	list = result.date;
+//				console.log(list.length);
+//				for (var i = 0; i < list.length; i++) {
+//					console.log(list[i]);
+//					var imgpath = list[i].goodsImgs.split("@YH@")[0];
+//					alert(imgpath);
+//					var str =  `
+//						<li class="item col-lg-3 col-md-6 col-xs-6">
+//							<div class="card">
+//								<ul class="card-img">
+//									<div class="new-list">
+//										<li class="active" style="position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
+//											<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="">
+//												<img src="${imgpath}" />
+//											</a>
+//										</li>
+//									</div>
+//								</ul>
+//								<h4 class="card-title m-b-0">
+//								<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="${obj.data[i].goods_name}" class="block text-truncate" target="_self" tabindex="-1">
+//								<span  style="">${obj.data[i].goods_name}</span>                      									</a>
+//								<p class="description">${obj.data[i].goods_desc}</p>
+//								<span class="btn btn-default btn-detail"><a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}"title="${obj.data[i].goods_name}" tabindex="-1">查看详情</a></span>
+//								<p class="price m-b-0 m-t-5">￥${obj.data[i].price}元</p>
+//						</div>
+//					</li>
+//					`;
+//					//每遍历一次就添加一次
+//					$('#selectionGoodsList').append(str);
+//				}
+//			},
+//		});
+//	}
+
+
 setTimeout(function() {
 		$('.load').css('display', 'none')
-	}, 300);
-	
+	}, 300)
 	
 //	banner
 	//调用自动动轮播

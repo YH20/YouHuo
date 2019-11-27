@@ -82,15 +82,17 @@ $('.input-group .form-user').blur(function() {
 		//	验证用户存在
 		lock1();
 	    var user=$(".form-user").val();
-//	    $.ajax({
-//	    	type:"post",
-//	    	url:"/login",
-//	    	data:"users"+user,
-//	    	contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-//	    	success:function(result){
-//	    		
-//	    	}
-//	    });
+	    $.ajax({
+	    	type:"post",
+	    	url:"checkUserServlet",
+	    	data:"checkuser="+user,
+	    	contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+	    	success:function(result){
+	    		if(result=="0"){
+//	    			用户存在
+	    		}
+	    	}
+	    });
 	
 	
 });
@@ -142,7 +144,6 @@ $('.input-group .form-user').keyup(function() {
 	
 	$(this).css('border', '1px solid #ccc');
 
-	//	验证用户存在
 	lock1();
 });
 

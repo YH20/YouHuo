@@ -201,13 +201,18 @@ public class GoodsDaoImpl implements GoodsDao {
 		return list;
 	}
 	@Override
-	public List<Goods> selectByShowindexAndRecommend(Connection conn,int showindex, int recommend, int nums) {
+	public List<Goods> selectByShowindexAndRecommend(Connection conn,int showindex, int recommend, int nums,boolean desc) {
 		
 		String sql ="SELECT * from yh_goods" + 
 				" where showindex =?  AND recommend =?" + 
-				" GROUP BY goods_like" + 
-				" DESC" + 
-				" LIMIT 0,?";
+				" GROUP BY goods_like";
+		
+		if(desc) {
+			sql+=" DESC";
+		}else {
+			sql+=" ASC";
+		}
+		sql+=" LIMIT 0,?";
 		List<Goods> list = new ArrayList<Goods>();
 		PreparedStatement ps = null;
 		ResultSet rs = null;

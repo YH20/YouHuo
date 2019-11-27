@@ -626,7 +626,7 @@
 	$(document).ready(function(){
 	var myid="a5e52c60-dadd-4cc6-a0ed-25ead2b60f14";
 	
-				$.ajax({
+				/* $.ajax({
 		          		type:"post",
 		          		url:"http://localhost:8080/YouHuo/mynfo",//servlet文件的名称
 		          		data:"myid=" + myid,
@@ -639,11 +639,7 @@
                				$(".s-name").text(json.username);
 		          			alert("servlet调用成功！"+json.userphone);
 		          		}
-		          	});
-			function getInfomation(){
-				
-				
-			};
+		          	}); */
 	});
 
 	

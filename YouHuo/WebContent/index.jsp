@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<title>YOUHUO优货商城</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/basic.css"/>
-		<link rel="stylesheet" href="css/index-style.css" type="text/css" />
-		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+		<link rel="stylesheet" href="/YouHuo/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/YouHuo/css/basic.css"/>
+		<link rel="stylesheet" href="/YouHuo/css/index-style.css" type="text/css" />
+		<link rel="stylesheet" href="/YouHuo/css/font-awesome.min.css" type="text/css" />
 	</head>
 
 	<body>
@@ -205,25 +206,27 @@
 					<ul class="list new-product-content">
 						<div class="slick-list" style="overflow: hidden;">
 							<div class="new-list" style="width:3796px;transform: translate3d(-1168px, 0px, 0px);">
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='-4'>
+								<c:forEach items="${slideShow}" var = "goods" varStatus="i">
+								<li class="item col-xs-6" style="width: 292px;" data-slick-index='${i.count-5}'>
 									<div class="card">
 										<ul class="card-img">
 											<div class="new-list">
-												<li class="active" style="width:291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
+											<c:forTokens items="${goods.goodsImgs}" var="img" delims="@YH@" end="2" varStatus="i">
+												<c:if test="${i.count eq 1}">
+													<li class="active" style="width:291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
 													<a href="" title="">
-														<img src="img/400_400/1569239208.jpg" />
+														<img src="${img}" />
 													</a>
-												</li>
-												<li class="" style="width:291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569240198.png" />
-													</a>
-												</li>
-												<li class="" style="width:291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733969.gif" />
-													</a>
-												</li>
+													</li>
+												</c:if>
+												<c:if test="${i.count ne 1}">
+													<li class="" style="width:291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
+														<a href="" title="">
+															<img src="${img}" />
+														</a>
+													</li>
+												</c:if>
+											</c:forTokens>
 											</div>
 											<!--小圆点-->
 											<div class="slick-points">
@@ -233,467 +236,16 @@
 											</div>
 										</ul>
 										<h4 class="card-title m-b-0">
-																					<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																				<span  style="">储能电源 150C</span>                      									</a>
-																		<p class="description">持久续航 智能降噪 双主机 高保真音质</p>
-																		<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-															<p class="price m-b-0 m-t-5">
-												￥299.00元</p>
-																					</h4>
+											<a href="product/showproduct.php?id=" title="${goods.goodsName}" class="block text-truncate" target="_self" tabindex="-1">
+													<span  style="">${goods.goodsName}</span> </a>
+													<p class="description">　　</p>
+													<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=" title="${goods.goodsName}" tabindex="-1">查看详情</a></span>
+													<p class="price m-b-0 m-t-5">
+												￥${goods.goodsPrice}元</p>
+										</h4>
 									</div>
 								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='-3'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567238750.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733174.gif" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733969.gif" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																												<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																											<span  style="">风扇 F1</span>                      									</a>
-																									<p class="description">静音 充电1次 能吹60小时</p>
-																									<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-																						<p class="price m-b-0 m-t-5">￥285.00元</p>
-																												</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='-2'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/
-																			1567234935.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733174.gif" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733969.gif" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																												<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																											<span  style="">蓝牙耳机 50</span>                      									</a>
-																									<p class="description">持久续航 智能降噪 双主机 高保真音质</p>
-																									<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-																						<p class="price m-b-0 m-t-5">
-																			￥299.00元</p>
-																												</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='-1'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1571651578.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1571652048.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1571651578.jpg" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																												<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																											<span  style="">便携式储能电源EN1</span>                      									</a>
-																									<p class="description">？？</p>
-																									<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="便携式储能电源EN1" tabindex="-1">查看详情</a></span>
-																						<p class="price m-b-0 m-t-5">￥699.00元</p>
-																												</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='0'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569053256.gif" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569054062.gif" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569053775.gif" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																					<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																				<span  style="">充电宝 20L</span>                      									</a>
-																		<p class="description">超薄 创意 网红款 快充</p>
-																		<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-															<p class="price m-b-0 m-t-5">￥299.00元</p>
-																					</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='1'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569239208.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569240198.png" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733969.gif" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																					<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																				<span  style="">储能电源 150C</span>                      									</a>
-																		<p class="description">持久续航 智能降噪 双主机 高保真音质</p>
-																		<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-															<p class="price m-b-0 m-t-5">
-												￥299.00元</p>
-																					</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='2'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567238750.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733174.gif" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733969.gif" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																					<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																				<span  style="">风扇 F1</span>                      									</a>
-																		<p class="description">静音 充电1次 能吹60小时</p>
-																		<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-															<p class="price m-b-0 m-t-5">￥285.00元</p>
-																					</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='3'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/
-												1567234935.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733174.gif" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733969.gif" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																					<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																				<span  style="">蓝牙耳机 50</span>                      									</a>
-																		<p class="description">持久续航 智能降噪 双主机 高保真音质</p>
-																		<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-															<p class="price m-b-0 m-t-5">
-												￥299.00元</p>
-																					</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='4'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1571651578.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1571652048.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1571651578.jpg" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																					<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																				<span  style="">便携式储能电源EN1</span>                      									</a>
-																		<p class="description">？？</p>
-																		<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="便携式储能电源EN1" tabindex="-1">查看详情</a></span>
-															<p class="price m-b-0 m-t-5">￥699.00元</p>
-																					</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='5'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569053256.gif" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569054062.gif" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569053775.gif" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																												<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																											<span  style="">充电宝 20L</span>                      									</a>
-																									<p class="description">超薄 创意 网红款 快充</p>
-																									<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-																						<p class="price m-b-0 m-t-5">￥299.00元</p>
-																												</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='6'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569239208.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1569240198.png" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733969.gif" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																												<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																											<span  style="">储能电源 150C</span>                      									</a>
-																									<p class="description">持久续航 智能降噪 双主机 高保真音质</p>
-																									<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-																						<p class="price m-b-0 m-t-5">
-																			￥299.00元</p>
-																												</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='7'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567238750.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733174.gif" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733969.gif" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																												<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																											<span  style="">风扇 F1</span>                      									</a>
-																									<p class="description">静音 充电1次 能吹60小时</p>
-																									<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-																						<p class="price m-b-0 m-t-5">￥285.00元</p>
-																												</h4>
-									</div>
-					
-								</li>
-								<li class="item col-xs-6" style="width: 292px;" data-slick-index='8'>
-									<div class="card">
-										<ul class="card-img">
-											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/
-																			1567234935.jpg" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733174.gif" />
-													</a>
-												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
-														<img src="img/400_400/1567733969.gif" />
-													</a>
-												</li>
-											</div>
-											<!--小圆点-->
-											<div class="slick-points">
-												<span class="current"></span>
-												<span class=""></span>
-												<span class=""></span>
-											</div>
-										</ul>
-										<h4 class="card-title m-b-0">
-																												<a href="product/showproduct.php?id=153" title="蓝牙耳机 505" class="block text-truncate" target="_self" tabindex="-1">
-																											<span  style="">蓝牙耳机 50</span>                      									</a>
-																									<p class="description">持久续航 智能降噪 双主机 高保真音质</p>
-																									<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=153" 							title="蓝牙耳机 505" tabindex="-1">查看详情</a></span>
-																						<p class="price m-b-0 m-t-5">
-																			￥299.00元</p>
-																												</h4>
-									</div>
-					
-								</li>
+								</c:forEach>
 							</div>
 						</div>
 					</ul>
@@ -916,106 +468,54 @@
 	</body>
 
 </html>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/lastbasic.js"></script>
+<script type="text/javascript" src="/YouHuo/js/jquery.min.js"></script>
+<script type="text/javascript" src="/YouHuo/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/YouHuo/js/lastbasic.js"></script>
+<script type="text/javascript" src="/YouHuo/js/index.js"></script>
 <script>
-	
-	//打开就要加载
-	getGoodsList(1,6);
-	
-
-	//点击更多可以添加很多数据
-	$('#addMore').click(function(){
-		getGoodsList(2,32);
+getShowGoodsList(34,1);	
+//请求数据的商品集合封装函数
+function getShowGoodsList(nums,type){
+	$.ajax({
+		url:'http://localhost/YouHuo/showGoods',
+		data:{"nums":nums,"type":type},
+		dataType:'json',
+		type:'POST',
+		success:function(result) {
+			console.log(result.code);
+			if(result.code!=0){
+				return;
+			}
+			var list = new Array();
+			 	list = result.date;
+			console.log(list.length);
+			for (var i = 0; i < list.length; i++) {
+				var imgpath = list[i].goodsImgs.split("@YH@")[0];
+				//alert(imgpath);
+				var str ="<li class='item col-lg-3 col-md-6 col-xs-6'>"
+						+"<div class='card'>"
+							+"<ul class='card-img'>"
+							+"<div class='new-list'>"
+							+"<li class='active' style='position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;'>"
+							+"<a href='product_infomation.jsp?goods_id="+list[i].GId+"' title=''>"			
+							+"<img src='"+imgpath+"' />"				
+							+"</a>"		
+							+"</li>"		
+							+"</div>"	
+							+"</ul>"
+							+"<h4 class='card-title m-b-0'>"
+							+"<a href='product_infomation.jsp?goods_id="+list[i].GId+"' title='"+list[i].goodsName+"' class='block text-truncate' target='_self' tabindex='-1'>"
+							+"<p class='description'>　　</p>"
+							+"<span  style=''>"+list[i].goodsName+"</span></a>"
+							+"<span class='btn btn-default btn-detail'><a href='product_infomation.jsp?goods_id="+list[i].GId+"'title='"+list[i].goodsName+"' tabindex='-1'>查看详情</a></span>"
+							+"<p class='price m-b-0 m-t-5'>￥$"+list[i].goodsPrice+"元</p>"
+					+"</div></li>";
+				//每遍历一次就添加一次
+				$('#selectionGoodsList').append(str);
+			}
+		},
 	});
-	//请求数据的商品集合封装函数
-	function getShowGoodsList(nums,type){
-		$.get('http://localhost:8080/YouHuo/showGoods',{
-			nums:nums,
-			type:type,
-		},function(result){
-			var obj = JSON.parse(result);
-			console.log(obj);
-			if(obj.code != 0){
-				
-				console.log(obj.message);
-				return;
-			}
-			//渲染数据
-			for(var i = 0;i<obj.data.length;i++){
-//				console.log('进来了');
-		var str =  `
-				<li class="item col-lg-3 col-md-6 col-xs-6">
-					<div class="card">
-						<ul class="card-img">
-							<div class="new-list">
-								<li class="active" style="position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-									<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="">
-										<img src="${obj.data[i].goods_thumb}"" />
-									</a>
-								</li>
-							</div>
-						</ul>
-						<h4 class="card-title m-b-0">
-						<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="${obj.data[i].goods_name}" class="block text-truncate" target="_self" tabindex="-1">
-						<span  style="">${obj.data[i].goods_name}</span>                      									</a>
-						<p class="description">${obj.data[i].goods_desc}</p>
-						<span class="btn btn-default btn-detail"><a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}"title="${obj.data[i].goods_name}" tabindex="-1">查看详情</a></span>
-						<p class="price m-b-0 m-t-5">￥${obj.data[i].price}元</p>
-				</div>
-			</li>
-			`;
-			//每遍历一次就添加一次
-			$('#selectionGoodsList').append(str);
-			}
-		});
-	}
-	
-	
-	//请求数据的商品集合封装函数
-	function getGoodsList(page,pagesize){
-		$.get('http://localihost/YouHuo/showGoods',{
-			page:page,
-			pagesize:pagesize,
-		},function(result){
-			var obj = JSON.parse(result);
-			console.log(obj);
-			if(obj.code != 0){
-				
-//				console.log(obj.message);
-				return;
-			}
-			//渲染数据
-			for(var i = 0;i<obj.data.length;i++){
-//				console.log('进来了');
-		var str =  `
-				<li class="item col-lg-3 col-md-6 col-xs-6">
-					<div class="card">
-						<ul class="card-img">
-							<div class="new-list">
-								<li class="active" style="position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-									<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="">
-										<img src="${obj.data[i].goods_thumb}"" />
-									</a>
-								</li>
-							</div>
-						</ul>
-						<h4 class="card-title m-b-0">
-						<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="${obj.data[i].goods_name}" class="block text-truncate" target="_self" tabindex="-1">
-						<span  style="">${obj.data[i].goods_name}</span>                      									</a>
-						<p class="description">${obj.data[i].goods_desc}</p>
-						<span class="btn btn-default btn-detail"><a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}"title="${obj.data[i].goods_name}" tabindex="-1">查看详情</a></span>
-						<p class="price m-b-0 m-t-5">￥${obj.data[i].price}元</p>
-				</div>
-			</li>
-			`;
-			//每遍历一次就添加一次
-			$('#selectionGoodsList').append(str);
-			}
-		});
-	}
+}
 	
 
 </script>

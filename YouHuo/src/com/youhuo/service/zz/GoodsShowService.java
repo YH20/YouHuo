@@ -22,4 +22,9 @@ public interface GoodsShowService {
 	 */
 	
 	public List<Goods> showGoodsLike(int nums,int type);
+	/**
+	 * 首页新品上市轮播图
+	 * @return
+	 */
+	public List<Goods> slideshowGoods();
 }
