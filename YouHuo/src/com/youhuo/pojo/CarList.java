@@ -36,15 +36,36 @@ public class CarList implements java.io.Serializable {
     /** 购物车id */
     private Long carId;
 
-    /** 备用字段 */
+    /**商品主图 */
     private String value;
+    
+    /**
+     	* 商品名字
+     */
+    private String goodsName;
+    /**
+     	 * 得到商品名
+     * @return
+     */
+    public final String getGoodsName() {
+		return goodsName;
+	}
+    /**
+            * 设置商品名
+     * @param goodsName
+     */
+	public final void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
 
-    public CarList() {
+	public CarList() {
 		// TODO Auto-generated constructor stub
 	}
     
-    public CarList(Long liId, Long goodsId, Integer nums, String color, String size, Double carPrice,
-			Double carSubtotal, Long carId, String value) {
+   
+
+	public CarList(Long liId, Long goodsId, Integer nums, String color, String size, Double carPrice,
+			Double carSubtotal, Long carId, String value, String goodsName) {
 		super();
 		this.liId = liId;
 		this.goodsId = goodsId;
@@ -55,8 +76,8 @@ public class CarList implements java.io.Serializable {
 		this.carSubtotal = carSubtotal;
 		this.carId = carId;
 		this.value = value;
+		this.goodsName = goodsName;
 	}
-
 	/**
      * 获取购物车里的商品信息
      * 
@@ -227,12 +248,13 @@ public class CarList implements java.io.Serializable {
     public void setValue(String value) {
         this.value = value;
     }
-
+    
 	@Override
 	public String toString() {
 		return "CarList [liId=" + liId + ", goodsId=" + goodsId + ", nums=" + nums + ", color=" + color + ", size="
 				+ size + ", carPrice=" + carPrice + ", carSubtotal=" + carSubtotal + ", carId=" + carId + ", value="
-				+ value + "]";
+				+ value + ", goodsName=" + goodsName + "]";
 	}
+	
     
 }

@@ -29,7 +29,7 @@ public class CarListDaoImpl implements CarListDao{
 		 * 购物车ID自增	 插入8个字段 id自增
 		 */
 		String sql = "insert into yh_car_list(goods_id,nums,color,size,car_price,"
-				+ "car_subtotal,car_id,value) values(?,?,?,?,?,?,?,?)";
+				+ "car_subtotal,car_id,value,goods_name) values(?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(sql);
@@ -41,6 +41,7 @@ public class CarListDaoImpl implements CarListDao{
 			ps.setDouble(6, carList.getCarSubtotal());
 			ps.setLong(7, carList.getCarId());
 			ps.setString(8, carList.getValue());
+			ps.setString(9, carList.getGoodsName());
 			int n = ps.executeUpdate();
 			if(n>0) {
 				return true;
@@ -86,7 +87,7 @@ public class CarListDaoImpl implements CarListDao{
 	@Override
 	public boolean updateCarList(Connection conn, CarList carList) {
 		String sql = "update yh_car_list set goods_id=?,nums=?,color=?,size=?,"
-				+ "car_price=?,car_subtotal=?,car_id=?,value=? where li_id=?";
+				+ "car_price=?,car_subtotal=?,car_id=?,value=?,goods_name=? where li_id=?";
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(sql);
@@ -98,8 +99,9 @@ public class CarListDaoImpl implements CarListDao{
 			ps.setDouble(6, carList.getCarSubtotal());
 			ps.setLong(7, carList.getCarId());
 			ps.setString(8, carList.getValue());
+			ps.setString(9, carList.getGoodsName());
 			//ID
-			ps.setLong(9, carList.getLiId());
+			ps.setLong(10, carList.getLiId());
 			int n = ps.executeUpdate();
 			if(n>0) {
 				return true;
@@ -138,6 +140,7 @@ public class CarListDaoImpl implements CarListDao{
 				carList.setCarSubtotal(rs.getDouble("car_subtotal"));
 				carList.setCarId(rs.getLong("car_id"));
 				carList.setValue(rs.getString("value"));
+				carList.setGoodsName(rs.getString("goods_name"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -172,6 +175,7 @@ public class CarListDaoImpl implements CarListDao{
 				carList.setCarSubtotal(rs.getDouble("car_subtotal"));
 				carList.setCarId(rs.getLong("car_id"));
 				carList.setValue(rs.getString("value"));
+				carList.setGoodsName(rs.getString("goods_name"));
 				list.add(carList);
 			}
 		} catch (SQLException e) {

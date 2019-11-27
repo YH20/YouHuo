@@ -162,12 +162,12 @@
 								</li>
 								<li class="">
 									<a href="javascript:;">
-										<img class="cover-image" id="img-action" src="img/2019112602.png" />
+										<img class="cover-image" id="img-action" src="img/2019112601.jpg" />
 									</a>
 								</li>
 								<li>
 									<a href="javascript:;">
-										<img class="cover-image" id="img-action" src="img/1567239909.jpg" />
+										<img class="cover-image" id="img-action" src="img/2019112601.jpg" />
 									</a>
 								</li>
 							</ul>
@@ -209,17 +209,17 @@
 									<div class="card">
 										<ul class="card-img">
 											<div class="new-list">
-												<li class="active" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
+												<li class="active" style="width:291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
 													<a href="" title="">
 														<img src="img/400_400/1569239208.jpg" />
 													</a>
 												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
+												<li class="" style="width:291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
 													<a href="" title="">
 														<img src="img/400_400/1569240198.png" />
 													</a>
 												</li>
-												<li class="" style="width: 					291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
+												<li class="" style="width:291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
 													<a href="" title="">
 														<img src="img/400_400/1567733969.gif" />
 													</a>

@@ -6,7 +6,7 @@
 		<!-- 配置数据库密码 -->
 		<property name="password">xiaozhao</property>
 		<!-- 配置数据库链接地址 -->
-		<property name="jdbcUrl">jdbc:mysql://120.27.243.208:3306/youhuo?useUnicode=true&amp;characterEncoding=UTF-8</property>
+		<property name="jdbcUrl">jdbc:mysql://127.0.0.1:3306/youhuo?useUnicode=true&amp;characterEncoding=UTF-8</property>
 		<!-- 配置数据库驱动 -->
 		<property name="driverClass">com.mysql.jdbc.Driver</property>
 		<!-- 数据库连接池一次性向数据库要多少个连接对象 -->
