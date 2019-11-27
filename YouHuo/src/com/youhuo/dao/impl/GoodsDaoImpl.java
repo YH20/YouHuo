@@ -169,8 +169,8 @@ public class GoodsDaoImpl implements GoodsDao {
 	 */
 	@Override
 	public List<Goods> selectAll(Connection conn) {
-		List<Goods> list = new ArrayList<Goods>();
 		String sql = "select * from yh_goods";
+		List<Goods> list = new ArrayList<Goods>();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Goods goods = null;
@@ -200,6 +200,49 @@ public class GoodsDaoImpl implements GoodsDao {
 		}
 		return list;
 	}
+	@Override
+	public List<Goods> selectByShowindexAndRecommend(Connection conn,int showindex, int recommend, int nums) {
+		
+		String sql ="SELECT * from yh_goods" + 
+				" where showindex =?  AND recommend =?" + 
+				" GROUP BY goods_like" + 
+				" DESC" + 
+				" LIMIT 0,?";
+		List<Goods> list = new ArrayList<Goods>();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Goods goods = null;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, showindex);
+			ps.setInt(2, recommend);
+			ps.setInt(3, nums);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				goods = new Goods();
+				goods.setGId(rs.getLong("g_id"));
+				goods.setGoodsName(rs.getString("goods_name"));
+				goods.setTypeId(rs.getInt("type_id"));
+				goods.setGoodsPrice(rs.getDouble("goods_price"));
+				goods.setGoodsImgs(rs.getString("goods_imgs"));
+				goods.setGoodsImginfos(rs.getString("goods_imginfos"));
+				goods.setGoodsStatus(rs.getInt("goods_status"));
+				goods.setGoodsLike(rs.getInt("goods_like"));
+				goods.setShowindex(rs.getInt("showindex"));
+				goods.setRecommend(rs.getInt("recommend"));
+				goods.setCreated(rs.getString("created"));
+				goods.setValue(rs.getString("value"));
+				list.add(goods);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBHelper.closeResoues(ps, rs);
+		}
+		return list;
+	
+	}
+	
 	
 	
 }
