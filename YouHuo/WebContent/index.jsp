@@ -130,7 +130,7 @@
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
 											<div class="navlogin" >
-												<a class="navbar-brand" id="navbarLogin" href="/YouHuo/index-login.jsp"  title="登录">
+												<a class="navbar-brand" id="navbar_Login" href="/YouHuo/index-login.jsp"  title="登录">
 													<span class="glyphicon glyphicon-user"></span>
 												</a>
 											</div>
