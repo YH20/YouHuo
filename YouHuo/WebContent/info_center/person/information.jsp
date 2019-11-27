@@ -177,12 +177,10 @@
 
 						<!--头像 -->
 						<div class="user-infoPic">
-
 							<div class="filePic">
 								<input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
 								<img class="am-circle am-img-thumbnail" src="../images/getAvatar.do.jpg" alt="" />
 							</div>
-
 							<p class="am-form-help">头像</p>
 
 							<div class="info-m">
