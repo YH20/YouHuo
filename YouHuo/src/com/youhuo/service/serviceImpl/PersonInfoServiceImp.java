@@ -1,5 +1,11 @@
 package com.youhuo.service.serviceImpl;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import com.youhuo.dao.UserDao;
+import com.youhuo.dao.impl.UserDaoImpl;
+import com.youhuo.db.DBHelper;
 import com.youhuo.pojo.User;
 import com.youhuo.service.PersonInfoService;
 /**
@@ -9,11 +15,13 @@ import com.youhuo.service.PersonInfoService;
  *
  */
 public class PersonInfoServiceImp implements PersonInfoService{
-
+	Connection conn;
 	@Override
-	public User getUserInfo(String username) {
-		User userself = new User();
-		return null;
+	public User getUserInfo(String userid) {
+		UserDao myself=new UserDaoImpl();
+		conn=DBHelper.getConnection();
+		User userself=myself.selectByID(conn, userid);
+		DBHelper.closeConnection(conn);
+		return userself;
 	}
-
 }
