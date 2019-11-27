@@ -85,7 +85,7 @@
 							<!--导航列表-->
 							<ul class="nav navbar-nav zfq_navlist hidden-sm ">
 								<li class="nav-item">
-									<a href="index.jsp" id="ahome" class="nav-link active">首页</a>
+									<a href="index.do" id="ahome" class="nav-link active">首页</a>
 								</li>
 								<li class="nav-item dropdown m-l-10" id="product">
 									<a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">产品</a>
