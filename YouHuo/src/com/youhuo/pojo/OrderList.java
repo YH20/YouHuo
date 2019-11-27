@@ -35,15 +35,32 @@ public class OrderList implements java.io.Serializable {
     /** 订单编号 */
     private Long orderinfoId;
 
-    /** 备用字段 */
+    /** 商品主图 */
     private String value;
+    /** 商品名称
+     */
+    private String goods_name;
+    /**
+     * 设置商品名称
+     * @return
+     */
+    public final String getGoods_name() {
+		return goods_name;
+	}
+    /**
+     * 得到商品名称
+     * @param goods_name
+     */
+	public final void setGoods_name(String goods_name) {
+		this.goods_name = goods_name;
+	}
 
-    public OrderList() {
+	public OrderList() {
 		// TODO Auto-generated constructor stub
 	}
-    
-    public OrderList(Long ordListId, Long goodsId, Integer gNums, String gColor, String gSize, Double gPrice,
-			Double gSubtotal, Long orderinfoId, String value) {
+   
+	public OrderList(Long ordListId, Long goodsId, Integer gNums, String gColor, String gSize, Double gPrice,
+			Double gSubtotal, Long orderinfoId, String value, String goods_name) {
 		super();
 		this.ordListId = ordListId;
 		this.goodsId = goodsId;
@@ -54,8 +71,8 @@ public class OrderList implements java.io.Serializable {
 		this.gSubtotal = gSubtotal;
 		this.orderinfoId = orderinfoId;
 		this.value = value;
+		this.goods_name = goods_name;
 	}
-
 	/**
      * 获取订单与商品结合ID
      * 
@@ -226,12 +243,13 @@ public class OrderList implements java.io.Serializable {
     public void setValue(String value) {
         this.value = value;
     }
-
 	@Override
 	public String toString() {
-		return "OederList [ordListId=" + ordListId + ", goodsId=" + goodsId + ", gNums=" + gNums + ", gColor=" + gColor
+		return "OrderList [ordListId=" + ordListId + ", goodsId=" + goodsId + ", gNums=" + gNums + ", gColor=" + gColor
 				+ ", gSize=" + gSize + ", gPrice=" + gPrice + ", gSubtotal=" + gSubtotal + ", orderinfoId="
-				+ orderinfoId + ", value=" + value + "]";
+				+ orderinfoId + ", value=" + value + ", goods_name=" + goods_name + "]";
 	}
+
+	
     
 }

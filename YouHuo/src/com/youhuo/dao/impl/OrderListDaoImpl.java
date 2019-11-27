@@ -30,7 +30,7 @@ public class OrderListDaoImpl implements OrderListDao{
 		 * 插入8个数据  ID自增
 		 */
 		String sql = "insert into yh_order_list(goods_id,g_nums,g_color,g_size,g_price,"
-					+ "g_subtotal,orderinfo_id,value) values(?,?,?,?,?,?,?,?)";
+					+ "g_subtotal,orderinfo_id,value,goods_name) values(?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(sql);
@@ -42,6 +42,7 @@ public class OrderListDaoImpl implements OrderListDao{
 			ps.setDouble(6, orderList.getGSubtotal());
 			ps.setLong(7, orderList.getOrderinfoId());
 			ps.setString(8, orderList.getValue());
+			ps.setString(9, orderList.getGoods_name());
 			int n = ps.executeUpdate();
 			if(n>0) {
 				return true;
@@ -87,7 +88,7 @@ public class OrderListDaoImpl implements OrderListDao{
 	@Override
 	public boolean updateOrderList(Connection conn, OrderList orderList) {
 		String sql = "update yh_order_list set goods_id=?,g_nums=?,g_color=?,g_size=?,g_price=?," + 
-						"g_subtotal=?,orderinfo_id=?,value=? where ord_list_id=?";
+						"g_subtotal=?,orderinfo_id=?,value=?,goods_name=? where ord_list_id=?";
 		PreparedStatement ps = null;
 		try {
 			ps = conn.prepareStatement(sql);
@@ -99,7 +100,9 @@ public class OrderListDaoImpl implements OrderListDao{
 			ps.setDouble(6, orderList.getGSubtotal());
 			ps.setLong(7, orderList.getOrderinfoId());
 			ps.setString(8, orderList.getValue());
-			ps.setLong(9, orderList.getOrdListId());
+			ps.setString(9, orderList.getGoods_name());
+			//ID
+			ps.setLong(10, orderList.getOrdListId());
 			int n = ps.executeUpdate();
 			if(n>0) {
 				return true;
@@ -139,6 +142,7 @@ public class OrderListDaoImpl implements OrderListDao{
 				orderList.setGPrice(rs.getDouble("g_subtotal"));
 				orderList.setOrderinfoId(rs.getLong("orderinfo_id"));
 				orderList.setValue(rs.getString("value"));
+				orderList.setGoods_name(rs.getString("goods_name"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -173,6 +177,7 @@ public class OrderListDaoImpl implements OrderListDao{
 				orderList.setGPrice(rs.getDouble("g_subtotal"));
 				orderList.setOrderinfoId(rs.getLong("orderinfo_id"));
 				orderList.setValue(rs.getString("value"));
+				orderList.setGoods_name(rs.getString("goods_name"));
 				list.add(orderList);
 			}
 		} catch (SQLException e) {
