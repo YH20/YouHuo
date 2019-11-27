@@ -3,6 +3,9 @@ package com.youhuo.service.serviceImpl;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import com.youhuo.dao.ShoppingCarDao;
 import com.youhuo.dao.UserDao;
@@ -38,7 +41,6 @@ public class UserServiceImpl implements UserService{
 		flag=dao1.insertShoppingCar(conn, shoppingcar);
 		//提交数据
 		conn.commit();
-		System.out.println("======="+flag1+"======="+flag);
 	} catch (SQLException e) {
 		try {
 			conn.rollback();
@@ -51,6 +53,35 @@ public class UserServiceImpl implements UserService{
 		 DBHelper.closeConnection(conn);
 	}
 	   return flag&&flag1;
+	}
+	/**
+	 * 查询用户是否存在
+	 */
+	@Override
+	public boolean selectByUser(String user) {
+		Connection conn=DBHelper.getConnection();
+		List<User> list= new ArrayList<User>();
+		boolean flag=false;
+		list=dao.selectAll(conn);
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i).getUserName().equals(user)){
+				flag=true;
+			}
+		}
+		DBHelper.closeConnection(conn);
+		return flag;
+	}
+	@Override
+	public User loginUser(String user, String pass) {
+		Connection conn=DBHelper.getConnection();
+		List<User> list= new ArrayList<User>();
+		list=dao.selectAll(conn);
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i).getUserName().equals(user)&&list.get(i).getUserPass().equals(pass)){
+				
+			}
+		}
+		return null;
 	}
    
 }

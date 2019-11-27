@@ -41,7 +41,6 @@ public class RegisterServlet extends HttpServlet {
 	   String useeid=StringHelper.getUUID();
 //	   用户里的购物车
 	   Long usercar=0L;
-//	 
 //	   用户头像
 	   String img=request.getParameter("content");
 	   String photo=null;
@@ -65,7 +64,6 @@ public class RegisterServlet extends HttpServlet {
 	 }else{
 //	   截取图片格式
 //	   截取拿到base64
-	     System.out.println(img);
 	     int index=img.indexOf(",");
 	     int index1=img.indexOf(";");
 	     photo=img.substring(index+1);
@@ -82,7 +80,6 @@ public class RegisterServlet extends HttpServlet {
 	    if(serverCode.equalsIgnoreCase(cilentCode)){
 //	    	增加用户
 	    	User user=new User();
-	    	System.out.println("UUID====第一次"+useeid);
 	    	user.setId(useeid);
 	    	user.setCarId(usercar);
 	    	user.setUserName(users);
@@ -97,18 +94,13 @@ public class RegisterServlet extends HttpServlet {
 	    	user.setNewvalue("0");
 	    	user.setUserImg(photo);
 	    	
-	    	
 //	    	创建购物车
 	    	ShoppingCar shoppingcar=new ShoppingCar();
 	    	shoppingcar.setListId(0L);
-	    	System.out.println("UUID====第二次"+useeid);
 	    	shoppingcar.setUserId(useeid);
 	    	shoppingcar.setValue(null);
 	    	boolean flag=false;
 	    	flag=dao.addUser(user, shoppingcar);
-	    	//System.out.println("对象是"+user);
-	    	System.out.println("======"+users);
-	    	System.out.println(pass);
 	    	if(flag){
 	    		response.sendRedirect("index-login.jsp");
 	    		System.out.print("注册成功");

@@ -73,8 +73,8 @@ public class ImageServlet extends HttpServlet {
 		g.setColor(Color.red);
 		g.setFont(new Font("宋体",Font.BOLD,30));
         g.drawString(sb1.toString(), 34, 29);
-		//		画干扰点
-		for (int i = 0; i < 690; i++) {
+		//		画干扰点690
+		for (int i = 0; i < 200; i++) {
 			int x=r.nextInt(WIDTH);
 			int y=r.nextInt(HEIGHT);
 			g.drawLine(x, y, x, y);
@@ -82,9 +82,9 @@ public class ImageServlet extends HttpServlet {
 //		画干扰线
 		g.drawLine(20, 15, 110, 20);
 		g.drawLine(10, 10, 120, 10);
-		g.drawLine(15, 30, 135, 7);
-		g.drawLine(10, 15, 110, 20);
-		g.drawLine(10, 15, 110, 23);
+//		g.drawLine(15, 30, 135, 7);
+//		g.drawLine(10, 15, 110, 20);
+//		g.drawLine(10, 15, 110, 23);
 		ImageIO.write(bimg, "jpg", sos);
 		sos.flush();
 		sos.close();
