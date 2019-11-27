@@ -57,6 +57,9 @@ public class User implements java.io.Serializable {
     public User() {
 		// TODO Auto-generated constructor stub
 	}
+    public User(String userName){
+    	this.userName=userName;
+  	}
     public User(String id, String userName, String userPass, String userBirthday, Integer sex, String phone,
 			String email, Integer userType, String userImg, Integer questionId, String questionAnswer, Long carId,
 			String created, String newvalue) {

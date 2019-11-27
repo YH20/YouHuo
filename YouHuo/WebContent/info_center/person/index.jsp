@@ -621,5 +621,17 @@
 			<li class="active"><a href="index.jsp"><i class="am-icon-user"></i>我的</a></li>					
 		</div>
 	</body>
-
 </html>
+<script type="text/javascript">  
+	function getInfomation(){
+		$.ajax({  
+          		url:"http://localhost:8080/YouHuo/myinfomation",//servlet文件的名称
+          		type:"POST",
+          		//data : "province=" + selectProvince+"&city=" + selectcity,
+          		success:function(e){
+          			alert("servlet调用成功！");
+          		}
+          	});
+		
+	}
+</script>  
