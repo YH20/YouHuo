@@ -48,10 +48,10 @@
 							<!--导航列表-->
 							<ul class="nav navbar-nav zfq_navlist hidden-sm ">
 								<li class="nav-item">
-									<a href="/youhuo/index.html" id="ahome" class="nav-link active">首页</a>
+									<a href="http://localhost:8080/YouHuo/index.jsp" id="ahome" class="nav-link active">首页</a>
 								</li>
 								<li class="nav-item dropdown m-l-10" id="product">
-									<a href="goodsList.html" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
+									<a href="http://localhost:8080/YouHuo/goodsList.jsp" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
 									<div class="dropdown-menu animation-slide-bottom10" id="pulldown">
 										<a href="javascript:;" title="充电宝" target='_self' class='dropdown-item '>充电宝</a>
 										<a href="javascript:;" title="手机电池" target='_self' class='dropdown-item '>手机电池</a>
@@ -137,13 +137,13 @@
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
 											<div class="navlogin">
-												<a class="navbar-brand" href="/youhuo/index-login.html" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
+												<a class="navbar-brand" href="/youhuo/index-login.jsp" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
 												
 											</div>
 										</li>
 										<li calss='shopcarli'>
 											<div class="navshopcart">
-												<a class="navbar-brand" href="/youhuo/shopcar.html" title="购物车">
+												<a class="navbar-brand" href="/youhuo/shopcar.jsp" title="购物车">
 													<span class="glyphicon glyphicon-shopping-cart"></span>
 													<span class="badge">0</span>
 												</a>
@@ -172,7 +172,7 @@
 								<div class="m-bg"></div>
 								<div class="m-userinfo">
 									<div class="m-baseinfo">
-										<a href="information.html">
+										<a href="information.jsp">
 											<img src="../images/getAvatar.do.jpg">
 										</a>
 										<em class="s-name">(小叮当)<span class="vip1"></em>
@@ -181,10 +181,10 @@
 									</div>
 									<div class="m-right">
 										<div class="m-new">
-											<a href="news.html"><i class="am-icon-bell-o"></i>消息</a>
+											<a href="news.jsp"><i class="am-icon-bell-o"></i>消息</a>
 										</div>
 										<div class="m-address">
-											<a href="address.html" class="i-trigger">我的收货地址</a>
+											<a href="address.jsp" class="i-trigger">我的收货地址</a>
 										</div>
 									</div>
 								</div>
@@ -195,21 +195,21 @@
 										<i class="s-icon"></i>个人资产
 									</div>
 									<p class="m-bonus">
-										<a href="bonus.html">
+										<a href="bonus.jsp">
 											<i><img src="../images/bonus.png"/></i>
 											<span class="m-title">红包</span>
 											<em class="m-num">2</em>
 										</a>
 									</p>
 									<p class="m-coupon">
-										<a href="coupon.html">
+										<a href="coupon.jsp">
 											<i><img src="../images/coupon.png"/></i>
 											<span class="m-title">优惠券</span>
 											<em class="m-num">2</em>
 										</a>
 									</p>
 									<p class="m-bill">
-										<a href="bill.html">
+										<a href="bill.jsp">
 											<i><img src="../images/wallet.png"/></i>
 											<span class="m-title">钱包</span>
 											<em class="m-num">2</em>
@@ -235,14 +235,14 @@
 							<div class="m-order">
 								<div class="s-bar">
 									<i class="s-icon"></i>我的订单
-									<a class="i-load-more-item-shadow" href="order.html">全部订单</a>
+									<a class="i-load-more-item-shadow" href="order.jsp">全部订单</a>
 								</div>
 								<ul>
-									<li><a href="order.html"><i><img src="../images/pay.png"/></i><span>待付款</span></a></li>
-									<li><a href="order.html"><i><img src="../images/send.png"/></i><span>待发货<em class="m-num">1</em></span></a></li>
-									<li><a href="order.html"><i><img src="../images/receive.png"/></i><span>待收货</span></a></li>
-									<li><a href="order.html"><i><img src="../images/comment.png"/></i><span>待评价<em class="m-num">3</em></span></a></li>
-									<li><a href="change.html"><i><img src="../images/refund.png"/></i><span>退换货</span></a></li>
+									<li><a href="order.jsp"><i><img src="../images/pay.png"/></i><span>待付款</span></a></li>
+									<li><a href="order.jsp"><i><img src="../images/send.png"/></i><span>待发货<em class="m-num">1</em></span></a></li>
+									<li><a href="order.jsp"><i><img src="../images/receive.png"/></i><span>待收货</span></a></li>
+									<li><a href="order.jsp"><i><img src="../images/comment.png"/></i><span>待评价<em class="m-num">3</em></span></a></li>
+									<li><a href="change.jsp"><i><img src="../images/refund.png"/></i><span>退换货</span></a></li>
 								</ul>
 							</div>
 							<!--九宫格-->
@@ -252,11 +252,11 @@
 								</div>
 								<ul>
 
-									<a href="../home/shopcart.html"><li class="am-u-sm-4"><i class="am-icon-shopping-basket am-icon-md"></i><img src="../images/iconbig.png"/><p>购物车</p></li></a>
-									<a href="collection.html"><li class="am-u-sm-4"><i class="am-icon-heart am-icon-md"></i><img src="../images/iconsmall1.png"/><p>我的收藏</p></li></a>
-									<a href="../home/home.html"><li class="am-u-sm-4"><i class="am-icon-gift am-icon-md"></i><img src="../images/iconsmall0.png"/><p>为你推荐</p></li></a>
-									<a href="comment.html"><li class="am-u-sm-4"><i class="am-icon-pencil am-icon-md"></i><img src="../images/iconsmall3.png"/><p>好评宝贝</p></li></a>
-									<a href="foot.html"><li class="am-u-sm-4"><i class="am-icon-clock-o am-icon-md"></i><img src="../images/iconsmall2.png"/><p>我的足迹</p></li></a>                                                                        
+									<a href="../home/shopcart.jsp"><li class="am-u-sm-4"><i class="am-icon-shopping-basket am-icon-md"></i><img src="../images/iconbig.png"/><p>购物车</p></li></a>
+									<a href="collection.jsp"><li class="am-u-sm-4"><i class="am-icon-heart am-icon-md"></i><img src="../images/iconsmall1.png"/><p>我的收藏</p></li></a>
+									<a href="../home/home.jsp"><li class="am-u-sm-4"><i class="am-icon-gift am-icon-md"></i><img src="../images/iconsmall0.png"/><p>为你推荐</p></li></a>
+									<a href="comment.jsp"><li class="am-u-sm-4"><i class="am-icon-pencil am-icon-md"></i><img src="../images/iconsmall3.png"/><p>好评宝贝</p></li></a>
+									<a href="foot.jsp"><li class="am-u-sm-4"><i class="am-icon-clock-o am-icon-md"></i><img src="../images/iconsmall2.png"/><p>我的足迹</p></li></a>                                                                        
 								</ul>
 							</div>
 							<!--物流 -->
@@ -281,7 +281,7 @@
 												<time>2015-12-20 17:58:05</time>
 
 												<div class="lg-detail-wrap">
-													<a class="lg-detail i-tip-trigger" href="logistics.html">查看物流明细</a>
+													<a class="lg-detail i-tip-trigger" href="logistics.jsp">查看物流明细</a>
 													<div class="J_TipsCon hide">
 														<div class="s-tip-bar">中通快递&nbsp;&nbsp;&nbsp;&nbsp;运单号：373269427686</div>
 														<div class="s-tip-content">
@@ -316,7 +316,7 @@
 												<time>2015-12-19 15:35:42</time>
 
 												<div class="lg-detail-wrap">
-													<a class="lg-detail i-tip-trigger" href="logistics.html">查看物流明细</a>
+													<a class="lg-detail i-tip-trigger" href="logistics.jsp">查看物流明细</a>
 													<div class="J_TipsCon hide">
 														<div class="s-tip-bar">天天快递&nbsp;&nbsp;&nbsp;&nbsp;运单号：666287461069</div>
 														<div class="s-tip-content">
@@ -573,39 +573,39 @@
 			<aside class="menu">
 				<ul>
 					<li class="person active">
-						<a href="index.html">个人中心</a>
+						<a href="index.jsp">个人中心</a>
 					</li>
 					<li class="person">
 						<a href="#">个人资料</a>
 						<ul>
-							<li> <a href="information.html">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
+							<li> <a href="information.jsp">个人信息</a></li>
+							<li> <a href="safety.jsp">安全设置</a></li>
+							<li> <a href="address.jsp">收货地址</a></li>
 						</ul>
 					</li>
 					<li class="person">
 						<a href="#">我的交易</a>
 						<ul>
-							<li><a href="order.html">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
+							<li><a href="order.jsp">订单管理</a></li>
+							<li> <a href="change.jsp">退款售后</a></li>
 						</ul>
 					</li>
 					<li class="person">
 						<a href="#">我的资产</a>
 						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
+							<li> <a href="coupon.jsp">优惠券 </a></li>
+							<li> <a href="bonus.jsp">红包</a></li>
+							<li> <a href="bill.jsp">账单明细</a></li>
 						</ul>
 					</li>
 
 					<li class="person">
 						<a href="#">我的小窝</a>
 						<ul>
-							<li> <a href="collection.html">收藏</a></li>
-							<li> <a href="foot.html">足迹</a></li>
-							<li> <a href="comment.html">评价</a></li>
-							<li> <a href="news.html">消息</a></li>
+							<li> <a href="collection.jsp">收藏</a></li>
+							<li> <a href="foot.jsp">足迹</a></li>
+							<li> <a href="comment.jsp">评价</a></li>
+							<li> <a href="news.jsp">消息</a></li>
 						</ul>
 					</li>
 
@@ -615,10 +615,10 @@
 		</div>
 		<!--引导 -->
 		<div class="navCir">
-			<li><a href="../home/home.html"><i class="am-icon-home "></i>首页</a></li>
-			<li><a href="../home/sort.html"><i class="am-icon-list"></i>分类</a></li>
-			<li><a href="../home/shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
-			<li class="active"><a href="index.html"><i class="am-icon-user"></i>我的</a></li>					
+			<li><a href="../home/home.jsp"><i class="am-icon-home "></i>首页</a></li>
+			<li><a href="../home/sort.jsp"><i class="am-icon-list"></i>分类</a></li>
+			<li><a href="../home/shopcart.jsp"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
+			<li class="active"><a href="index.jsp"><i class="am-icon-user"></i>我的</a></li>					
 		</div>
 	</body>
 

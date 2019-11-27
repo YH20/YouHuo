@@ -51,10 +51,10 @@
 							<!--导航列表-->
 							<ul class="nav navbar-nav zfq_navlist hidden-sm ">
 								<li class="nav-item">
-									<a href="/youhuo/index.html" id="ahome" class="nav-link active">首页</a>
+									<a href="http://localhost:8080/YouHuo/index.jsp" id="ahome" class="nav-link active">首页</a>
 								</li>
 								<li class="nav-item dropdown m-l-10" id="product">
-									<a href="goodsList.html" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
+									<a href="http://localhost:8080/YouHuo/goodsList.jsp" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
 									<div class="dropdown-menu animation-slide-bottom10" id="pulldown">
 										<a href="javascript:;" title="充电宝" target='_self' class='dropdown-item '>充电宝</a>
 										<a href="javascript:;" title="手机电池" target='_self' class='dropdown-item '>手机电池</a>
@@ -140,13 +140,13 @@
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
 											<div class="navlogin">
-												<a class="navbar-brand" href="/youhuo/index-login.html" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
+												<a class="navbar-brand" href="/youhuo/index-login.jsp" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
 												
 											</div>
 										</li>
 										<li calss='shopcarli'>
 											<div class="navshopcart">
-												<a class="navbar-brand" href="/youhuo/shopcar.html" title="购物车">
+												<a class="navbar-brand" href="/youhuo/shopcar.jsp" title="购物车">
 													<span class="glyphicon glyphicon-shopping-cart"></span>
 													<span class="badge">0</span>
 												</a>
@@ -280,19 +280,19 @@
 										<div class="am-form-group">
 											<label for="user-name" class="am-form-label">收货人</label>
 											<div class="am-form-content">
-												<input type="text" id="user-name" placeholder="收货人">
+												<input type="text" id="user-name" placeholder="收货人"/>
 											</div>
 										</div>
 
 										<div class="am-form-group">
 											<label for="user-phone" class="am-form-label">手机号码</label>
 											<div class="am-form-content">
-												<input id="user-phone" placeholder="手机号必填" type="email">
+												<input id="user-phone" placeholder="手机号必填" type="email" maxlength="11"/>
 											</div>
 										</div>
 										<div class="am-form-group">
 											<label for="user-address" class="am-form-label">所在地</label>
-											<div class="am-form-content address">
+											<div class="am-form-content address" id="addselect">
 												<select title="优先选择省" id="yh_province"></select>
 												<select title="其次选择市" id="yh_city"></select>
 												<select title="最后选择地区" id="yh_county"></select>
@@ -302,14 +302,14 @@
 										<div class="am-form-group">
 											<label for="user-intro" class="am-form-label">详细地址</label>
 											<div class="am-form-content">
-												<textarea class="" rows="3" id="user-intro" placeholder="输入详细地址" style="max-height: 96px;" maxlength="128" title="此区域最长输入内容为128······"></textarea>
+												<textarea class="" rows="4" id="user-intro" placeholder="输入详细地址" style="max-height: 96px;" maxlength="128" title="此区域最长输入内容为128······"></textarea>
 												<small>100字以内写出你的详细地址····</small>
 											</div>
 										</div>
 
 										<div class="am-form-group">
 											<div class="am-u-sm-9 am-u-sm-push-3">
-												<a class="am-btn am-btn-danger">保存</a>
+												<a class="am-btn am-btn-danger" id="sub">保存</a>
 												<a href="javascript: void(0)" class="am-close am-btn am-btn-danger" data-am-modal-close>取消</a>
 											</div>
 										</div>
@@ -352,39 +352,39 @@
 			<aside class="menu">
 				<ul>
 					<li class="person">
-						<a href="index.html">个人中心</a>
+						<a href="index.jsp">个人中心</a>
 					</li>
 					<li class="person">
 						<a href="#">个人资料</a>
 						<ul>
-							<li> <a href="information.html">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li class="active"> <a href="address.html">收货地址</a></li>
+							<li> <a href="information.jsp">个人信息</a></li>
+							<li> <a href="safety.jsp">安全设置</a></li>
+							<li class="active"> <a href="address.jsp">收货地址</a></li>
 						</ul>
 					</li>
 					<li class="person">
 						<a href="#">我的交易</a>
 						<ul>
-							<li><a href="order.html">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
+							<li><a href="order.jsp">订单管理</a></li>
+							<li> <a href="change.jsp">退款售后</a></li>
 						</ul>
 					</li>
 					<li class="person">
 						<a href="#">我的资产</a>
 						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
+							<li> <a href="coupon.jsp">优惠券 </a></li>
+							<li> <a href="bonus.jsp">红包</a></li>
+							<li> <a href="bill.jsp">账单明细</a></li>
 						</ul>
 					</li>
 
 					<li class="person">
 						<a href="#">我的小窝</a>
 						<ul>
-							<li> <a href="collection.html">收藏</a></li>
-							<li> <a href="foot.html">足迹</a></li>
-							<li> <a href="comment.html">评价</a></li>
-							<li> <a href="news.html">消息</a></li>
+							<li> <a href="collection.jsp">收藏</a></li>
+							<li> <a href="foot.jsp">足迹</a></li>
+							<li> <a href="comment.jsp">评价</a></li>
+							<li> <a href="news.jsp">消息</a></li>
 						</ul>
 					</li>
 
@@ -399,6 +399,26 @@
 <script type="text/javascript" src="../js/Dq_Adress.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {	
+		$("#sub").click(function(){
+			var shouhuoname=$("#user-name").val();
+			var shouhuophone=$("#user-phone").val();
+			var shouhuopro=$("#addselect").children().eq(0).val();
+			var shouhuocity=$("#addselect").children().eq(1).val();
+			var shouhuocounty=$("#addselect").children().eq(2).val();
+			var shouhuoaddress=$("#user-intro").val();
+			
+			if(!shouhuophone||!shouhuoname||!shouhuopro||!shouhuocity||!shouhuocounty||!shouhuoaddress){
+				$("#user-phone").css({
+					color:"red",
+					'border-width':"1px",
+					'border-color': "red"
+				});
+				alert("请您检查是否全部输入，或者输入有误！");
+			}else{
+				console.log("shouhuoname: "+shouhuoname+" shouhuophone: "+shouhuophone+" shouhuopro: "+shouhuopro+" shouhuocity: "+shouhuocity+" shouhuocounty:"+shouhuocounty+" shouhuoaddress: "+shouhuoaddress);
+			}
+		});
+		
 		$(".new-option-r").click(function() {
 			$(this).parent('.user-addresslist').addClass("defaultAddr").siblings().removeClass("defaultAddr");
 		});

@@ -51,10 +51,10 @@
 							<!--导航列表-->
 							<ul class="nav navbar-nav zfq_navlist hidden-sm ">
 								<li class="nav-item">
-									<a href="/youhuo/index.html" id="ahome" class="nav-link active">首页</a>
+									<a href="http://localhost:8080/YouHuo/index.jsp" id="ahome" class="nav-link active">首页</a>
 								</li>
 								<li class="nav-item dropdown m-l-10" id="product">
-									<a href="goodsList.html" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
+									<a href="http://localhost:8080/YouHuo/goodsList.jsp" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
 									<div class="dropdown-menu animation-slide-bottom10" id="pulldown">
 										<a href="javascript:;" title="充电宝" target='_self' class='dropdown-item '>充电宝</a>
 										<a href="javascript:;" title="手机电池" target='_self' class='dropdown-item '>手机电池</a>
@@ -140,13 +140,13 @@
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
 											<div class="navlogin">
-												<a class="navbar-brand" href="/youhuo/index-login.html" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
+												<a class="navbar-brand" href="/youhuo/index-login.jsp" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
 												
 											</div>
 										</li>
 										<li calss='shopcarli'>
 											<div class="navshopcart">
-												<a class="navbar-brand" href="/youhuo/shopcar.html" title="购物车">
+												<a class="navbar-brand" href="/youhuo/shopcar.jsp" title="购物车">
 													<span class="glyphicon glyphicon-shopping-cart"></span>
 													<span class="badge">0</span>
 												</a>
@@ -198,13 +198,13 @@
 											<h6 class="s-msg-bar"><span class="s-name">每日新鲜事</span></h6>
 											<div class="s-msg-content i-msg-downup-wrap">
 												<div class="i-msg-downup-con">
-													<a class="i-markRead" target="_blank" href="blog.html">
+													<a class="i-markRead" target="_blank" href="blog.jsp">
 														<img src="../images/TB102.jpg">
 														<p class="s-main-content">
 															最特色的湖北年货都在这儿 ~快来囤年货啦！
 														</p>
 														<p class="s-row s-main-content">
-															<a href="blog.html">
+															<a href="blog.jsp">
 															阅读全文 <i class="am-icon-angle-right"></i>
 															</a>
 														</p>
@@ -222,7 +222,7 @@
 											<h6 class="s-msg-bar"><span class="s-name">订单已签收</span></h6>
 											<div class="s-msg-content i-msg-downup-wrap">
 												<div class="i-msg-downup-con">
-													<a class="i-markRead" target="_blank" href="logistics.html">
+													<a class="i-markRead" target="_blank" href="logistics.jsp">
 													<div class="m-item">	
 														<div class="item-pic">															
 																	<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
@@ -250,7 +250,7 @@
 											<h6 class="s-msg-bar"><span class="s-name">卖家已退款&nbsp;¥12.90元</span></h6>
 											<div class="s-msg-content i-msg-downup-wrap">
 												<div class="i-msg-downup-con">
-													<a class="i-markRead" target="_blank" href="record.html">
+													<a class="i-markRead" target="_blank" href="record.jsp">
 													<div class="m-item">	
 														<div class="item-pic">															
 																	<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
@@ -263,7 +263,7 @@
                                                     </div>	
 
 													<p class="s-row s-main-content">
-															<a href="record.html">钱款去向</a> <i class="am-icon-angle-right"></i>
+															<a href="record.jsp">钱款去向</a> <i class="am-icon-angle-right"></i>
 													</p>
 													</a>
 												</div>
@@ -304,39 +304,39 @@
 			<aside class="menu">
 				<ul>
 					<li class="person">
-						<a href="index.html">个人中心</a>
+						<a href="index.jsp">个人中心</a>
 					</li>
 					<li class="person">
 						<a href="#">个人资料</a>
 						<ul>
-							<li> <a href="information.html">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
+							<li> <a href="information.jsp">个人信息</a></li>
+							<li> <a href="safety.jsp">安全设置</a></li>
+							<li> <a href="address.jsp">收货地址</a></li>
 						</ul>
 					</li>
 					<li class="person">
 						<a href="#">我的交易</a>
 						<ul>
-							<li><a href="order.html">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
+							<li><a href="order.jsp">订单管理</a></li>
+							<li> <a href="change.jsp">退款售后</a></li>
 						</ul>
 					</li>
 					<li class="person">
 						<a href="#">我的资产</a>
 						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
+							<li> <a href="coupon.jsp">优惠券 </a></li>
+							<li> <a href="bonus.jsp">红包</a></li>
+							<li> <a href="bill.jsp">账单明细</a></li>
 						</ul>
 					</li>
 
 					<li class="person">
 						<a href="#">我的小窝</a>
 						<ul>
-							<li> <a href="collection.html">收藏</a></li>
-							<li> <a href="foot.html">足迹</a></li>
-							<li> <a href="comment.html">评价</a></li>
-							<li class="active"> <a href="news.html">消息</a></li>
+							<li> <a href="collection.jsp">收藏</a></li>
+							<li> <a href="foot.jsp">足迹</a></li>
+							<li> <a href="comment.jsp">评价</a></li>
+							<li class="active"> <a href="news.jsp">消息</a></li>
 						</ul>
 					</li>
 
