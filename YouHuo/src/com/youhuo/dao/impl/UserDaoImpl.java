@@ -36,8 +36,8 @@ public class UserDaoImpl implements UserDao{
 		try {
 		  ps =	conn.prepareStatement(sql);
 		  //用uuid
-//		  ps.setString(1, user.getId());
-		  ps.setString(1, StringHelper.getUUID());
+		  ps.setString(1, user.getId());
+		  //ps.setString(1, StringHelper.getUUID());
 		  ps.setString(2, user.getUserName());
 		  ps.setString(3, user.getUserPass());
 		  ps.setString(4, user.getUserBirthday());

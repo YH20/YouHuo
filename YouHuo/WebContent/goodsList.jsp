@@ -85,7 +85,7 @@
 							<!--导航列表-->
 							<ul class="nav navbar-nav zfq_navlist hidden-sm ">
 								<li class="nav-item">
-									<a href="index.html" id="ahome" class="nav-link active">首页</a>
+									<a href="index.jsp" id="ahome" class="nav-link active">首页</a>
 								</li>
 								<li class="nav-item dropdown m-l-10" id="product">
 									<a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">产品</a>
@@ -174,7 +174,7 @@
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
 											<div class="navlogin">
-												<a class="navbar-brand" href="index-login.html" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
+												<a class="navbar-brand" href="index-login.jsp" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
 													<!-- 
 														<a href="javascript:;" class="navbar-brand navbar-avatar dropdown-toggle" id="welcome" style="display: none;" data-toggle="dropdown" aria-expanded="false">
 					                                   	欢迎您：<span class="caret"></span>
@@ -194,7 +194,7 @@
 										</li>
 										<li calss='shopcarli'>
 											<div class="navshopcart">
-												<a class="navbar-brand " href="shopcar.html" title="购物车">
+												<a class="navbar-brand " href="shopcar.jsp" title="购物车">
 													<span class="glyphicon glyphicon-shopping-cart"></span>
 													<span class="badge">0</span>
 												</a>
@@ -426,17 +426,17 @@
 						<ul class="card-img">
 							<div class="new-list">
 								<li class="active" style="position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-									<a href="product_infomation.html?goods_id=${obj.data[i].goods_id}" title="">
+									<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="">
 										<img src="${obj.data[i].goods_thumb}"" />
 									</a>
 								</li>
 							</div>
 						</ul>
 						<h4 class="card-title m-b-0">
-						<a href="product_infomation.html?goods_id=${obj.data[i].goods_id}" title="${obj.data[i].goods_name}" class="block text-truncate" target="_self" tabindex="-1">
+						<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="${obj.data[i].goods_name}" class="block text-truncate" target="_self" tabindex="-1">
 						<span  style="">${obj.data[i].goods_name}</span>                      									</a>
 						<p class="description">${obj.data[i].goods_desc}</p>
-						<span class="btn btn-default btn-detail"><a href="product_infomation.html?goods_id=${obj.data[i].goods_id}"title="${obj.data[i].goods_name}" tabindex="-1">查看详情</a></span>
+						<span class="btn btn-default btn-detail"><a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}"title="${obj.data[i].goods_name}" tabindex="-1">查看详情</a></span>
 						<p class="price m-b-0 m-t-5">￥${obj.data[i].price}元</p>
 				</div>
 			</li>

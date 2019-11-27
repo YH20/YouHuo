@@ -44,4 +44,9 @@ public interface GoodsDao {
 		 * @return
 		 */
 		public List<Goods> selectAll(Connection conn);
+		
+		/**
+		 * 根据查询参数，查出指定的商品List
+		 */
+		public List<Goods> selectByShowindexAndRecommend(Connection conn,int showindex,int recommend,int nums);
 }

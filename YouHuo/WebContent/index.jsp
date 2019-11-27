@@ -40,10 +40,10 @@
 							<!--导航列表-->
 							<ul class="nav navbar-nav zfq_navlist hidden-sm ">
 								<li class="nav-item">
-									<a href="index.html" id="ahome" class="nav-link active">首页</a>
+									<a href="index.jsp" id="ahome" class="nav-link active">首页</a>
 								</li>
 								<li class="nav-item dropdown m-l-10" id="product">
-									<a href="goodsList.html" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
+									<a href="goodsList.jsp" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
 									<div class="dropdown-menu animation-slide-bottom10" id="pulldown">
 										<a href="javascript:;" title="充电宝" target='_self' class='dropdown-item '>充电宝</a>
 										<a href="javascript:;" title="手机电池" target='_self' class='dropdown-item '>手机电池</a>
@@ -129,12 +129,12 @@
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
 											<div class="navlogin">
-												<a class="navbar-brand" href="index-login.html" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
+												<a class="navbar-brand" href="index-login.jsp" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
 											</div>
 										</li>
 										<li calss='shopcarli'>
 											<div class="navshopcart">
-												<a class="navbar-brand" href="/youhuo/shopcar.html" title="购物车">
+												<a class="navbar-brand" href="/youhuo/shopcar.jsp" title="购物车">
 													<span class="glyphicon glyphicon-shopping-cart"></span>
 													<span class="badge">0</span>
 												</a>
@@ -930,17 +930,59 @@
 	$('#addMore').click(function(){
 		getGoodsList(2,32);
 	});
-
+	//请求数据的商品集合封装函数
+	function getShowGoodsList(nums,type){
+		$.get('http://localhost:8080/YouHuo/showGoods',{
+			nums:nums,
+			type:type,
+		},function(result){
+			var obj = JSON.parse(result);
+			console.log(obj);
+			if(obj.code != 0){
+				
+				console.log(obj.message);
+				return;
+			}
+			//渲染数据
+			for(var i = 0;i<obj.data.length;i++){
+//				console.log('进来了');
+		var str =  `
+				<li class="item col-lg-3 col-md-6 col-xs-6">
+					<div class="card">
+						<ul class="card-img">
+							<div class="new-list">
+								<li class="active" style="position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
+									<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="">
+										<img src="${obj.data[i].goods_thumb}"" />
+									</a>
+								</li>
+							</div>
+						</ul>
+						<h4 class="card-title m-b-0">
+						<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="${obj.data[i].goods_name}" class="block text-truncate" target="_self" tabindex="-1">
+						<span  style="">${obj.data[i].goods_name}</span>                      									</a>
+						<p class="description">${obj.data[i].goods_desc}</p>
+						<span class="btn btn-default btn-detail"><a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}"title="${obj.data[i].goods_name}" tabindex="-1">查看详情</a></span>
+						<p class="price m-b-0 m-t-5">￥${obj.data[i].price}元</p>
+				</div>
+			</li>
+			`;
+			//每遍历一次就添加一次
+			$('#selectionGoodsList').append(str);
+			}
+		});
+	}
+	
+	
 	//请求数据的商品集合封装函数
 	function getGoodsList(page,pagesize){
-		$.get('http://www.wjian.top/shop/api_goods.php',{
+		$.get('http://localihost/YouHuo/showGoods',{
 			page:page,
 			pagesize:pagesize,
 		},function(result){
 			var obj = JSON.parse(result);
 			console.log(obj);
 			if(obj.code != 0){
-				3
 				
 //				console.log(obj.message);
 				return;
@@ -954,17 +996,17 @@
 						<ul class="card-img">
 							<div class="new-list">
 								<li class="active" style="position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-									<a href="product_infomation.html?goods_id=${obj.data[i].goods_id}" title="">
+									<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="">
 										<img src="${obj.data[i].goods_thumb}"" />
 									</a>
 								</li>
 							</div>
 						</ul>
 						<h4 class="card-title m-b-0">
-						<a href="product_infomation.html?goods_id=${obj.data[i].goods_id}" title="${obj.data[i].goods_name}" class="block text-truncate" target="_self" tabindex="-1">
+						<a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}" title="${obj.data[i].goods_name}" class="block text-truncate" target="_self" tabindex="-1">
 						<span  style="">${obj.data[i].goods_name}</span>                      									</a>
 						<p class="description">${obj.data[i].goods_desc}</p>
-						<span class="btn btn-default btn-detail"><a href="product_infomation.html?goods_id=${obj.data[i].goods_id}"title="${obj.data[i].goods_name}" tabindex="-1">查看详情</a></span>
+						<span class="btn btn-default btn-detail"><a href="product_infomation.jsp?goods_id=${obj.data[i].goods_id}"title="${obj.data[i].goods_name}" tabindex="-1">查看详情</a></span>
 						<p class="price m-b-0 m-t-5">￥${obj.data[i].price}元</p>
 				</div>
 			</li>

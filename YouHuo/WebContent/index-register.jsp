@@ -243,7 +243,7 @@
 								<input type="text" name="registercode" id="" value="" class="form-control form-messge input-lg" placeholder="验证码" />
 							    <a class="btn input-group-btn"><img  name="" id="register-random" onclick="flushCode(this)" src="imageServlet" /></a>
 								<p class="mesError"><img src="img/eer.png"/>此项不能为空</p>
-								<p class="mes1Error"><img src="img/eer.png"/>验证码错误!</p>
+								<p class="mes1Error">$(mesg)</p>
 							</div>
 							<button type="submit" class="btn btn-block register-btn btn-lg">立即注册</button>
 							<h5 class="text-right"><a class="" href=" index-login.html">已有账号?</a></h5>
