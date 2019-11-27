@@ -16,7 +16,6 @@ import org.jdom.input.SAXBuilder;
  */
 public class Address {
 	public List getAdress(String proname,String cityname1){
-		System.out.println("proname:"+proname+"cityname1:"+cityname1);
 		//1.创建SAXBuilder对象
         SAXBuilder saxBuilder = new SAXBuilder();
         InputStream is;
