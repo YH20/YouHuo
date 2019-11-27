@@ -622,16 +622,29 @@
 		</div>
 	</body>
 </html>
-<script type="text/javascript">  
-	function getInfomation(){
-		$.ajax({  
-          		url:"http://localhost:8080/YouHuo/myinfomation",//servlet文件的名称
-          		type:"POST",
-          		//data : "province=" + selectProvince+"&city=" + selectcity,
-          		success:function(e){
-          			alert("servlet调用成功！");
-          		}
-          	});
-		
-	}
+<script type="text/javascript"> 
+	$(document).ready(function(){
+	var myid="a5e52c60-dadd-4cc6-a0ed-25ead2b60f14";
+	
+				$.ajax({
+		          		type:"post",
+		          		url:"http://localhost:8080/YouHuo/mynfo",//servlet文件的名称
+		          		data:"myid=" + myid,
+		          		success:function(e){
+		          		console.log(myid),
+		          			alert("success调用成功！");
+		          			//把JSON字符串转化为JSON对象
+               				var json = eval("("+e+")");
+							//获取String
+               				$(".s-name").text(json.username);
+		          			alert("servlet调用成功！"+json.userphone);
+		          		}
+		          	});
+			function getInfomation(){
+				
+				
+			};
+	});
+
+	
 </script>  
