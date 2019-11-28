@@ -51,7 +51,7 @@ img{
 	margin: 5px auto;
 	position: relative;
 	z-index: 9;
-	background: #FF1493;
+	/**background: #FF1493;*/
 }
 .dq_product_img>img{
 	width: 460px;height: 400px;
@@ -126,6 +126,7 @@ img{
 .dq_product_min_img img,.dq_product_img>img{
 	width: 100%;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
 
@@ -251,7 +252,7 @@ img{
 
 
 .product_info_right>ul>li>h3{
-	font-weight:bold;
+	color: #757575;
 }
 .product_info_right>ul>li #product_content_slogan{
 	color: #777777;
