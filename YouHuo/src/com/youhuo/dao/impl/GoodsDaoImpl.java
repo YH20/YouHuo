@@ -20,8 +20,9 @@ import com.youhuo.pojo.Goods;
  */
 public class GoodsDaoImpl implements GoodsDao {
 	/**
-	 * 使用log日志
+	 * 使用log日志   
 	 */
+	
 	private static Logger log = Logger.getLogger(GoodsDaoImpl.class);
 	@Override
 	public boolean insertGood(Connection conn, Goods goods) {
@@ -200,6 +201,15 @@ public class GoodsDaoImpl implements GoodsDao {
 		}
 		return list;
 	}
+	/**
+	 * 根据首页推荐，点赞数，推荐度
+	 * @param conn
+	 * @param showindex
+	 * @param recommend
+	 * @param nums
+	 * @param desc
+	 * @return
+	 */
 	@Override
 	public List<Goods> selectByShowindexAndRecommend(Connection conn,int showindex, int recommend, int nums,boolean desc) {
 		
@@ -247,7 +257,57 @@ public class GoodsDaoImpl implements GoodsDao {
 		return list;
 	
 	}
-	
-	
-	
+	/**
+	 * 根据分类推荐点赞数高的产品，或者是低的产品
+	 * @param conn
+	 * @param type
+	 * @param recommend
+	 * @param nums
+	 * @param desc
+	 * @return
+	 */
+	@Override
+	public List<Goods> selectByGoodsTypeAndRecommend(Connection conn, int type, int recommend, int nums, boolean desc) {
+		String sql = "SELECT * FROM yh_goods" + 
+				" where type_id = ? AND recommend = ?" + 
+				" ORDER BY goods_like";
+		if(desc) {
+			sql+=" DESC";
+		}else {
+			sql+=" ASC";
+		}
+		 sql+=" LIMIT 0,?";
+		 List<Goods> list = new ArrayList<Goods>();
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+			Goods goods = null;
+			try {
+				ps = conn.prepareStatement(sql);
+				ps.setInt(1, type);
+				ps.setInt(2, recommend);
+				ps.setInt(3, nums);
+				rs = ps.executeQuery();
+				while(rs.next()) {
+					goods = new Goods();
+					goods.setGId(rs.getLong("g_id"));
+					goods.setGoodsName(rs.getString("goods_name"));
+					goods.setTypeId(rs.getInt("type_id"));
+					goods.setGoodsPrice(rs.getDouble("goods_price"));
+					goods.setGoodsImgs(rs.getString("goods_imgs"));
+					goods.setGoodsImginfos(rs.getString("goods_imginfos"));
+					goods.setGoodsStatus(rs.getInt("goods_status"));
+					goods.setGoodsLike(rs.getInt("goods_like"));
+					goods.setShowindex(rs.getInt("showindex"));
+					goods.setRecommend(rs.getInt("recommend"));
+					goods.setCreated(rs.getString("created"));
+					goods.setValue(rs.getString("value"));
+					list.add(goods);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				DBHelper.closeResoues(ps, rs);
+			}
+			return list;
+	}
 }

@@ -622,7 +622,7 @@
 		</div>
 	</body>
 </html>
-<script type="text/javascript" lang> 
+
 
 /*前台中获取Session中的对象：*/
 /*    function getSessionMessage(){ 
@@ -633,6 +633,9 @@
 
 
 
+
+
+<script type="text/javascript"> 
 
 	$(document).ready(function(){
 		var date=new Date();

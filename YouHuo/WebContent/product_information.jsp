@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<title>购物商城</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1"/>
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/dq_product.css" />
-		<link rel="stylesheet" href="css/basic.css" >/>
-		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+		<link rel="stylesheet" href="/YouHuo/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/YouHuo/css/dq_product.css" />
+		<link rel="stylesheet" href="/YouHuo/css/basic.css" >/>
+		<link rel="stylesheet" href="/YouHuo/css/font-awesome.min.css" type="text/css" />
 	</head>
 	<body>
 			<!--加载界面-->
@@ -39,10 +40,10 @@
 							<!--导航列表-->
 							<ul class="nav navbar-nav zfq_navlist hidden-sm ">
 								<li class="nav-item">
-									<a href="index.html" id="ahome" class="nav-link active">首页</a>
+									<a href="index.jsp" id="ahome" class="nav-link active">首页</a>
 								</li>
 								<li class="nav-item dropdown m-l-10" id="product">
-									<a href="goodsList.html" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
+									<a href="goodsList.jsp" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
 									<div class="dropdown-menu animation-slide-bottom10" id="pulldown">
 										<a href="javascript:;" title="充电宝" target='_self' class='dropdown-item '>充电宝</a>
 										<a href="javascript:;" title="手机电池" target='_self' class='dropdown-item '>手机电池</a>
@@ -128,7 +129,7 @@
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
 											<div class="navlogin">
-												<a class="navbar-brand" href="index-login.html" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
+												<a class="navbar-brand" href="index-login.jsp" id="navbar_Login" title="登录"><span class="glyphicon glyphicon-user"></span></a>
 													<!-- 
 														<a href="javascript:;" class="navbar-brand navbar-avatar dropdown-toggle" id="welcome" style="display: none;" data-toggle="dropdown" aria-expanded="false">
 					                                   	欢迎您：<span class="caret"></span>
@@ -148,7 +149,7 @@
 										</li>
 										<li calss='shopcarli'>
 											<div class="navshopcart">
-												<a class="navbar-brand" href="shopcar.html" title="购物车">
+												<a class="navbar-brand" href="shopcar.jsp" title="购物车">
 													<span class="glyphicon glyphicon-shopping-cart"></span>
 													<span class="badge">0</span>
 												</a>
@@ -169,7 +170,106 @@
 					<!--容器-->
 					<div class="row dq_product" id="goodsInformation">
 						<!--行-->
+						<!--左侧商品图片显示-->
+						<div class="col-md-6">
 						
+							<!--列-->
+							<c:forTokens items="${good.goodsImgs}" var="img" delims="@YH@" end="0" varStatus="i">
+							<div class="fdajing" style="background-image: url('${img}');"></div>
+							<div class="product_info_left" id="${good.GId}">
+								<!--左侧上面内容-->
+								<!--按钮-->
+								<a href="javascript:;" class="dq_next"></a>
+								<a href="javascript:;" class="dq_prev"></a>
+								
+								<div class="dq_product_img">
+									<img src="${img}" />
+									<!--滑块-->
+									<div class="slide" style="cursor:pointer"></div>
+								</div>
+		
+								<ul class="dq_product_min_img">
+		
+									<li class="min_img_active"><img src="${img}" /></li>
+									</c:forTokens>
+									<c:forTokens items="${good.goodsImgs}" var="img" delims="@YH@" begin="1" end="4" step="1" varStatus="i">
+										<li><img src="${img}" /></li>
+									</c:forTokens>
+								</ul>
+		
+							</div>
+						</div>
+					
+					<!--右侧商品详细内容-->
+					<div class="col-md-5">
+						<div class="product_info_right">
+					
+							<ul>
+								<li>
+									<h3>${good.goodsName}</h3></li>
+								<li>
+									<p id="product_content_slogan">&nbsp</p>
+								</li>
+								<li>
+									<h3 id="dq_price">￥${good.goodsPrice}0</h3></li>
+								<!-- <li class="row">
+									<p class="col-md-2 dq_product_sellquick">促销热卖中……</p>
+					
+								</li>
+								 -->
+								<li class="row">
+									<div class="col-md-10 product_content_type">
+										<p style="font-size:18px;">颜色 :
+											<button class="btn btn-default" type="button">白色</button>
+											<button class="btn btn-default" type="button">黑色</button>
+											<button class="btn btn-default" type="button">红色</button>
+										</p>
+									</div>
+								</li>
+								<li class="row">
+									<div class="col-md-10 product_content_type">
+										<p style="font-size:18px;">尺寸 :
+											<button class="btn btn-default" type="button">S</button>
+											<button class="btn btn-default" type="button">M</button>
+											<button class="btn btn-default" type="button">L</button>
+										</p>
+									</div>
+								</li>
+								<li class="row">
+									<p class="col-md-2 dq_biaoti">数量:
+										<div class="col-md-10 product_content_type">
+											<i class="no-select" style="user-select: none;" id="product_num_decbtn">-</i>
+											<input id="dq_product_number" type="text" readonly="readonly" value="1" />
+											<i class="no-select" style="user-select: none;" id="product_num_addbtn">+</i>
+										</div>
+									</p>
+					
+								</li>
+					
+								<li class="row">
+									<p class="col-mg-2 dq_biaoti">商家服务:</p>
+									<p class="col-md-10 dq_shangjia_server">
+										<a href="" alt="优货，购有所值">&loz;&7天无理由退货&loz;15天无忧换货&loz;满119包邮&loz;商家发货网易自营</a>
+									</p>
+								</li>
+								<li style="margin-top: 20px;" class="row">
+									<div class="col-md-3">
+										<button class="dq_buy">立即购买</button>
+									</div>
+									<div class="col-md-3 col-md-offset-3">
+										<button class="dq_in_buycar">
+			    							<span  class="glyphicon glyphicon-shopping-cart">加入购物车
+			    							</span>
+			    						</button>
+									</div>
+					
+								</li>
+							</ul>
+							<div class="info" style="display: none;"></div>
+					
+						</div>
+					
+					</div>
 					</div>
 				</div>
 			</div>
@@ -183,20 +283,25 @@
 								<a class="dq_active" data-toggle="tab" href="#" data-get="">
 									<span class="slickSpan">了解详情</span>
 								</a>
+								<!-- 
 								<a class="" data-toggle="tab" href="#" data-get="">
 									<span class="slickSpan">技术参数</span>
 								</a>
+								 -->
 							</div>
 							<div class="dq_infomation">
 								<!--产品类型-->
 								<ul class="product_list">
 									<li>
-										<h3>产品类型：<span>家用电器</span></h3>
-		
+										<h3>产品类型：<span class="getGoodsType" id="${goodsType.catCode}" >${goodsType.catName}</span></h3>
 									</li>
 								</ul>
 								<p class="dq_img_info">
-									<img src="dq_product_img/xq1.jpg" />
+								<c:forTokens items="${good.goodsImginfos}" var="img" delims="@YH@">
+									<img src="${img}" alt="优货商品"/>
+								</c:forTokens>
+								<!-- 详情图片插入 -->
+									<!--  
 									<img src="dq_product_img/xq2.jpg" />
 									<img src="dq_product_img/xq3.jpg" />
 									<img src="dq_product_img/xq4.jpg" />
@@ -209,7 +314,7 @@
 									<img src="dq_product_img/xq11.jpg" />
 									<img src="dq_product_img/xq12.jpg" />
 									<img src="dq_product_img/xq13.jpg" />
-									<img src="dq_product_img/xq14.jpg" />
+									<img src="dq_product_img/xq14.jpg" />-->
 								</p>
 		
 							</div>
@@ -223,43 +328,8 @@
 							</div>
 		
 							<div class="product_link">
-								<ul>
-									<li class="product_link_img">
-										<a href="#" title='充电宝 20L' class="">
-											<img src="dq_product_img/tj2.gif" alt='充电宝 20L'>
-										</a>
-										<h4 class='font-size-16 text-xs-center'>
-		                                            <a href="#" title='充电宝 20L'>    												<span style=''>充电宝 20L</span>
-		                                            </a>
-		                                            <p class='product-price'>
-		                                            	￥169.00元
-		                                            </p>
-		                                        </h4>
-									</li>
-									<li class="product_link_img">
-										<a href="#" title='储能电源 150C' class="">
-											<img src="dq_product_img/tj3.jpg" alt='储能电源 150C' />
-										</a>
-										<h4 class='font-size-16 text-xs-center'>
-		                                            <a href="#" title='储能电源 150C'>    												<span style=''>储能电源 150C</span>
-		                                            </a>
-		                                            <p class='product-price'>
-		                                            	￥1688.00元
-		                                            </p>
-		                                        </h4>
-									</li>
-									<li class="product_link_img">
-										<a href="#" title='风扇 F1' class="">
-											<img src="dq_product_img/tj1.jpg" alt='风扇 F1'>
-										</a>
-										<h4 class='font-size-16 text-xs-center'>
-		                                            <a href="#" title="风扇 F1">    												<span style=''>风扇 F1</span>
-		                                            </a>
-		                                            <p class='product-price'>
-		                                            	￥285.00元
-		                                            </p>
-		                                        </h4>
-									</li>
+								<ul id="goods_recommend">
+								<!-- 推荐商品插入 -->
 								</ul>
 							</div>
 						</div>
@@ -370,9 +440,9 @@
 		<footer class="foot-info-met" m-id="8" m-type="foot">
 			<div class="container text-xs-center  p-y-20 p-x-0">
 				<div class="footer-info-last text-xs-left">
-					<p class="m-b-0">YOUHUO/优货 版权所有 2005-2019 粤ICP备10077763号</p>
+					<p class="m-b-0">YOUHUO/优货 版权所有 2010-2019湘ICP备10077763号</p>
 					<div class="powered_by_metinfo">
-						<p>Powered by <strong>YOUHUO</strong>&nbsp;&nbsp;深圳市锐讯天成科技有限公司</p>
+						<p>Powered by <strong>YOUHUO</strong>&nbsp;&nbsp;长沙市优货科技有限公司</p>
 					</div>
 				</div>
 			</div>
@@ -388,153 +458,41 @@
 <script type="text/javascript" src="js/bootstrap.min.js" ></script>
 <script type="text/javascript" src="js/lastbasic.js"></script>
 <script>
-	function getUrlVal(property){
-	  //地址栏
-	  var urlStr = window.location.search.substring(1);
-	  var re = new RegExp('(^|&)'+ property +'=([^&]*)(&|$)');
-	  var result = urlStr.match(re);
-	  if(result == null){return null};
-	  return result[2];
-	};
-	
-	//调用渲染数据方法
-	addGoodsData();
-	//渲染数据封装
-	function addGoodsData(){
-		var goodsId = getUrlVal("goods_id"); 
-		console.log(goodsId);
-		if(goodsId!=null){
-			$.get('http://www.wjian.top/shop/api_goods.php',{
-				goods_id:goodsId,
-				},function(result){
-					var goodsData = JSON.parse(result);
-					console.log(goodsData);
-					console.log(goodsData.data[0].price);
-					
-					if(goodsData.code != 0){
-						return;
-					}
-					var str = `
-					<!--左侧商品图片显示-->
-					<div class="col-md-6">
-						<!--列-->
-						<div class="fdajing"></div>
-						<div class="product_info_left">
-							<!--左侧上面内容-->
-					
-							<!--按钮-->
-							<a href="javascript:;" class="dq_next"></a>
-							<a href="javascript:;" class="dq_prev"></a>
-							<div class="dq_product_img">
-								<img src="${goodsData.data[0].goods_thumb}" />
-								<!--滑块-->
-								<div class="slide"></div>
-							</div>
-					
-							<ul class="dq_product_min_img">
-								<li><img src="${goodsData.data[0].goods_thumb}" /></li>
-							</ul>
-					
-						</div>
-					</div>
-					
-					<!--右侧商品详细内容-->
-					<div class="col-md-5">
-						<div class="product_info_right">
-					
-							<ul>
-								<li>
-									<h3>${goodsData.data[0].goods_name}</h3></li>
-								<li>
-									<p id="product_content_slogan"${goodsData.data[0].goods_desc}</p>
-								</li>
-								<li>
-									<h3 id="dq_price">￥${goodsData.data[0].price}</h3></li>
-								<li class="row">
-									<p class="col-md-2 dq_product_sellquick">促销热卖中……</p>
-					
-								</li>
-					
-								<li class="row">
-									<div class="col-md-10 product_content_type">
-										<p style="font-size:18px;">颜色 :
-											<button class="btn btn-default" type="button">白色</button>
-											<button class="btn btn-default" type="button" style="background-color: gold;">玫瑰金</button>
-											<button class="btn btn-default" type="button" style="background-color: deeppink;">粉色</button>
-											<button class="btn btn-default" type="button" style="background-color: #5CB85C;">绿色</button>
-											<button class="btn btn-default" type="button" style="background-color: aqua;">淡蓝色</button>
-										</p>
-									</div>
-					
-								</li>
-								<li class="row">
-									<p class="col-md-2 dq_biaoti">数量:
-										<div class="col-md-10 product_content_type">
-											<i id="product_num_decbtn">➖</i>
-											<input id="dq_product_number" type="text" readonly="readonly" value="1" />
-											<i id="product_num_addbtn">➕</i>
-										</div>
-									</p>
-					
-								</li>
-					
-								<li class="row">
-									<p class="col-mg-2 dq_biaoti">商家服务:</p>
-									<p class="col-md-10 dq_shangjia_server">
-										<a href="" alt="优货，购有所值">&loz;&7天无理由退货&loz;15天无忧换货&loz;满119包邮&loz;商家发货网易自营</a>
-									</p>
-								</li>
-								<li style="margin-top: 20px;" class="row">
-									<div class="col-md-3">
-										<button class="dq_buy">立即购买</button>
-									</div>
-									<div class="col-md-3 col-md-offset-3">
-										<button class="dq_in_buycar">
-											    							<span  class="glyphicon glyphicon-shopping-cart">加入购物车
-											    							</span>
-											    						</button>
-									</div>
-					
-								</li>
-							</ul>
-							<div class="info" style="display: none;"></div>
-					
-						</div>
-					
-					</div>
-					`;
-					$('#goodsInformation').append(str);
-				});
+
+   var typeId =  $(".getGoodsType");
+   alert(typeId.attr("id"));
+
+getRecommendGoodsList(121, 1, 6);
+	//请求推荐商品集合封装函数
+function getRecommendGoodsList(goodstype, recommend, nums){
+	$.ajax({
+		url:'/YouHuo/recommendGoods',
+		data:{"nums":nums,"goodstype":goodstype,"recommend":recommend},
+		dataType:'json',
+		type:'POST',
+		success:function(result) {
+			console.log(result.code);
+			if(result.code!=0){
+				return;
 			}
-	}
-	
-	
-	$('#dq_chang_a>a').click(function(){
-		$(this).addClass('dq_active').siblings().removeClass();
-//或者$(this).attr('class','dq_active')$(this).siblings().attr('class','');
+			
+			var list = new Array();
+			 	list = result.date;
+			console.log(list.length);
+			for (var i = 0; i < list.length; i++) {
+				var imgpath = list[i].goodsImgs.split("@YH@")[0];
+				var str = "<li class='product_link_img'>"
+					+"<a href='/YouHuo/showGood?id="+list[i].GId+"' title='"+list[i].goodsName+"' class='''>"
+					+"<img src='"+imgpath+"' tagert='_blank' alt='"+list[i].goodsName+"'></a>"
+					+"<h4 class='font-size-16 text-xs-center'>"
+                     +"<a href='/YouHuo/showGood?id="+list[i].GId+"' title='"+list[i].goodsName+"'><span>"+list[i].goodsName+"</span></a>"
+					  +"<p class='product-price'>￥"+list[i].goodsPrice+"元</p></h4></li>";
+				//每遍历一次就添加一次
+				$('#goods_recommend').append(str);
+			}
+		},
 	});
-	
-//	(function(){
-//		var goodsId = getUrlVal('goods_id');
-//		//发起请求
-//		$.get('http://www.wjian.top/shop/api_goods.php', {goods_id : goodsId,
-//}, function(result){
-//  var obj = JSON.parse(result);
-//  var goods = obj.data[0];
-//  var str = `
-//    <p>${goods.goods_name}</p>
-//    <p>${goods.goods_desc}</p>
-//    <p>${goods.price}</p>
-//    <p>${goods.star_number}</p>
-//    <p>+  -</p>
-//    <a href="javascript:;">加入购物车</a>
-//    <a href="cart.html">立即购买</a>
-//  `;
-//  $('.info').html(str);
-//});
-//})();
-
-
+}
 //放大镜
 (function(){
   //事件:鼠标移入到up再移动，再移出
@@ -599,7 +557,7 @@
       $('.dq_product_img img').attr('src', imgSrc);
       console.log(imgSrc);
       $('.fdajing').css({
-        'background-image':'url('+ imgSrc +')'
+        'background-image':'url('+ imgSrc +')',
       });
 	};
   

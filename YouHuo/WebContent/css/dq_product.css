@@ -47,22 +47,23 @@ img{
   clear: both;
 }
 .dq_product_img{
-	width: 460px;height: 400px;
+	width: 400px;height: 400px;
 	margin: 5px auto;
 	position: relative;
 	z-index: 9;
-	background: #FF1493;
+	/**background: #FF1493;*/
 }
 .dq_product_img>img{
-	width: 400px;height: 400px;
+	width: 460px;height: 400px;
 }
 /*放大镜*/
 .slide{
-	width: 100px;height: 100px;
+	width: 200px;height: 200px;
 	background-image: url(../dq_img/fdj.jpg);
 	background-size: 100%;
-	opacity: 0.5;
-	filter:alpha(opacity=50);/*兼容IE*/
+	/* background:no-repeat; */
+	opacity: 0.2;
+	filter:alpha(opacity=20);/*兼容IE*/
 	position: absolute;
 	left: 0px; top:0px;
 	display: none;
@@ -70,12 +71,11 @@ img{
 }
 /*放大后图片显示的div*/
 .fdajing{
-	width: 460px;height: 460px;
-	border: 1px solid #FF0000;
+	width: 400px;height: 400px;
 	position: absolute;
-	background-image: url(../dq_product_img/fs1.gif);
+	background:no-repeat;
 	left: 694px;top: 18px;
-	background-size: 500px 500px;
+	background-size: 800px 800px;
 	background-position: -0px 0px;
 	z-index: 11;
 	display: none;
@@ -126,6 +126,7 @@ img{
 .dq_product_min_img img,.dq_product_img>img{
 	width: 100%;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
 
@@ -251,7 +252,7 @@ img{
 
 
 .product_info_right>ul>li>h3{
-	font-weight:bold;
+	color: #757575;
 }
 .product_info_right>ul>li #product_content_slogan{
 	color: #777777;
@@ -346,6 +347,5 @@ img{
 	float: left;
 }
 #product_num_addbtn{
-	border: #FF4500 solid 2px;
-	
+	border: #EC971F solid 2px;
 }

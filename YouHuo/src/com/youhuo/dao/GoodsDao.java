@@ -46,7 +46,23 @@ public interface GoodsDao {
 		public List<Goods> selectAll(Connection conn);
 		
 		/**
-		 * 根据查询参数，查出指定的商品List
+		 * 根据首页推荐，点赞数，推荐度
+		 * @param conn
+		 * @param showindex
+		 * @param recommend
+		 * @param nums
+		 * @param desc
+		 * @return
 		 */
 		public List<Goods> selectByShowindexAndRecommend(Connection conn,int showindex,int recommend,int nums,boolean desc);
+		/**
+		 * 根据分类推荐点赞数高的产品，或者是低的产品
+		 * @param conn
+		 * @param type
+		 * @param recommend
+		 * @param nums
+		 * @param desc
+		 * @return
+		 */
+		public List<Goods> selectByGoodsTypeAndRecommend(Connection conn,int type,int recommend,int nums,boolean desc);
 }

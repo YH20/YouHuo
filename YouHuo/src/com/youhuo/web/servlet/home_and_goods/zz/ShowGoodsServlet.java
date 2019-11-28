@@ -24,13 +24,13 @@ import net.sf.json.JSONObject;
  */
 
 @WebServlet(name = "showGoods", urlPatterns = { "/showGoods" })
-public class ShowGoosServlet extends HttpServlet {
+public class ShowGoodsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowGoosServlet() {
+    public ShowGoodsServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

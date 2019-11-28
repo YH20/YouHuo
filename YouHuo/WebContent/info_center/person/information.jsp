@@ -377,7 +377,6 @@
 /* $('#..').attr('checked',true)
 		
 		$(":radio")	所有 type="radio" 的 <input> 元素 */
-user-phone
 
 /*已完成👇*/
 	$("button.tishi").hide();

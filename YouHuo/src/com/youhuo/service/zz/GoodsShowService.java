@@ -3,6 +3,7 @@ package com.youhuo.service.zz;
 import java.util.List;
 
 import com.youhuo.pojo.Goods;
+import com.youhuo.pojo.GoodsType;
 
 /**
  *商品查询展示用的service
@@ -27,4 +28,21 @@ public interface GoodsShowService {
 	 * @return
 	 */
 	public List<Goods> slideshowGoods();
+	/**
+	 * 查询商品详情
+	 * @param gid
+	 * @return
+	 */
+	public Goods selectGoodsInfo(long gid);
+	/**
+	 * 获取产品的类型
+	 * @param typeId
+	 * @return
+	 */
+	public GoodsType selectGoodsType(int typeId);
+	
+	/**
+	 * 根据产品类型推荐商品
+	 */
+	public List<Goods> recommendGoods(int type,int recommend, int nums, boolean desc);
 }
