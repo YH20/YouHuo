@@ -20,8 +20,9 @@ import com.youhuo.pojo.Goods;
  */
 public class GoodsDaoImpl implements GoodsDao {
 	/**
-	 * 使用log日志
+	 * 使用log日志   
 	 */
+	
 	private static Logger log = Logger.getLogger(GoodsDaoImpl.class);
 	@Override
 	public boolean insertGood(Connection conn, Goods goods) {

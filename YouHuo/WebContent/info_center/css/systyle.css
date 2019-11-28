@@ -2,16 +2,27 @@
 /* CSS Document */
 .col-main{padding-top:0 ;}
 /*个人信息*/
-.m-userinfo{position: relative;padding-top:20px;margin-bottom:20px;overflow: auto;background:#F03726;}
-.m-bg{background:#F03726;height:46px ;width:100%;position:absolute;border-radius:50%;top:132px;}
+.m-userinfo{position: relative;padding-top:20px;margin-bottom:20px;overflow: hidden;background:#F03726;}
+.m-bg{background:#F03726;height:56px ;width:100%;position:absolute;border-radius:50%;top:132px;}
 .m-user{background:#fff ;}
 .m-baseinfo{text-align: center;}
-.m-baseinfo a {display: block;width: 57px;height: 57px;margin:0px auto;}
+.m-baseinfo a {display: block;width: 57px;height: 150px;margin:0px auto;}
 .m-baseinfo a img ,.m-userproperty i img{border-radius: 50%;width: 100%;height: 100%;}
 
-.m-userinfo .s-name {margin-top: 6px;display: block; color: #fff;line-height: 23px;}
-.s-prestige{ line-height:23px; padding:0px 5px;background:#F4F4F4;}
-.vip1{margin-left: 5px;display: inline-block;width: 14px;height: 14px;background:url(../images/%E5%9B%BE%E6%A0%87.png); background-position:-230px -505px;}
+.m-userinfo .s-name {margin-top: 6px;display: block; color: #930093;font-family:bold;line-height: 23px;}
+.s-name2{margin-top: 2px;display: block; color: #fff;line-height: 23px;}
+.s-prestige{ line-height:24px; padding:0px 4px;background:#F4F4F4;}
+
+.vip1{background:url(../images/%E5%9B%BE%E6%A0%87.png);background-position:-230px -505px;}
+.vip2{background:url(../images/%E5%9B%BE%E6%A0%87.png);background-position:-186px -505px;}
+.vip3{background:url(../images/%E5%9B%BE%E6%A0%87.png);background-position:-146px -505px;}
+.vip999{background:url(../images/%E5%9B%BE%E6%A0%87.png);background-position:-25px -505px;}
+span[class^="vip"] {
+	margin-left: 5px;
+	display: inline-block;
+	width: 18px;height: 16px;
+}
+
 a.i-trigger { cursor: pointer;position: relative; z-index: 2;display: block; padding-top: 10px; color: #fff; text-align: center;}
 
 

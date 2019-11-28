@@ -40,8 +40,21 @@ public class Self_Info extends HttpServlet {
 		PersonInfoService myinfo=new PersonInfoServiceImp();
 		User myin=myinfo.getUserInfo(userid);
 		Map<String, Object> info=new HashMap<String, Object>();
-		info.put("username", myin.getUserName());
-		info.put("userphone", myin.getPhone());
+		int levelnum=myin.getUserType();
+		info.put("userphoto", myin.getUserImg());//头像
+		info.put("username", myin.getUserName());//名字
+		info.put("userphone", myin.getPhone());//电话
+		info.put("userlevel", levelnum);//会员等级
+		String level = null;
+		switch (levelnum){
+	      case 1:level="白银会员"; break;
+	      case 2:level="黄金会员";break;
+	      case 3:level="铂金会员";break;
+	      case 999:level="管理员";break;
+	      default :break;
+		}
+		System.out.println("等级： "+level);
+		info.put("level", level);//会员等级
 		System.out.println("info.toString()--->"+info.toString());
 		//map集合转换为JSON对象
 		JSONObject result = JSONObject.fromObject(info);

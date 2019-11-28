@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<title>购物商城</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1"/>
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/dq_product.css" />
-		<link rel="stylesheet" href="css/basic.css" >/>
-		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+		<link rel="stylesheet" href="/YouHuo/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/YouHuo/css/dq_product.css" />
+		<link rel="stylesheet" href="/YouHuo/css/basic.css" >/>
+		<link rel="stylesheet" href="/YouHuo/css/font-awesome.min.css" type="text/css" />
 	</head>
 	<body>
 			<!--加载界面-->
@@ -128,7 +129,7 @@
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
 											<div class="navlogin">
-												<a class="navbar-brand" href="index-login.html" id="navbarLogin" title="登录"><span class="glyphicon glyphicon-user"></span></a>
+												<a class="navbar-brand" href="index-login.html" id="navbar_Login" title="登录"><span class="glyphicon glyphicon-user"></span></a>
 													<!-- 
 														<a href="javascript:;" class="navbar-brand navbar-avatar dropdown-toggle" id="welcome" style="display: none;" data-toggle="dropdown" aria-expanded="false">
 					                                   	欢迎您：<span class="caret"></span>
@@ -169,7 +170,105 @@
 					<!--容器-->
 					<div class="row dq_product" id="goodsInformation">
 						<!--行-->
-						
+						<!--左侧商品图片显示-->
+						<!--左侧商品图片显示-->
+						<div class="col-md-6">
+							<!--列-->
+							<div class="fdajing" style="background-image: url(dq_product_img/fs1.gif);"></div>
+							<div class="product_info_left">
+								<!--左侧上面内容-->
+		
+								<!--按钮-->
+								<a href="javascript:;" class="dq_next"></a>
+								<a href="javascript:;" class="dq_prev"></a>
+								<div class="dq_product_img">
+									<img src="dq_product_img/fs1.gif" />
+									<!--滑块-->
+									<div class="slide"></div>
+								</div>
+		
+								<ul class="dq_product_min_img">
+		
+									<li class="min_img_active"><img src="dq_product_img/fs1.gif" /></li>
+									<li><img src="dq_product_img/fs2.gif" /></li>
+									<li><img src="dq_product_img/fs3.gif" /></li>
+									<li><img src="dq_product_img/fs4.jpg" /></li>
+									<li><img src="dq_product_img/fs5.gif" /></li>
+								</ul>
+		
+							</div>
+						</div>
+					
+					<!--右侧商品详细内容-->
+					<div class="col-md-5">
+						<div class="product_info_right">
+					
+							<ul>
+								<li>
+									<h3>可乐</h3></li>
+								<li>
+									<p id="product_content_slogan">商品描述</p>
+								</li>
+								<li>
+									<h3 id="dq_price">￥999</h3></li>
+								<!-- <li class="row">
+									<p class="col-md-2 dq_product_sellquick">促销热卖中……</p>
+					
+								</li>
+								 -->
+								<li class="row">
+									<div class="col-md-10 product_content_type">
+										<p style="font-size:18px;">颜色 :
+											<button class="btn btn-default" type="button">白色</button>
+											<button class="btn btn-default" type="button">黑色</button>
+											<button class="btn btn-default" type="button">红色</button>
+										</p>
+									</div>
+								</li>
+								<li class="row">
+									<div class="col-md-10 product_content_type">
+										<p style="font-size:18px;">尺寸 :
+											<button class="btn btn-default" type="button">S</button>
+											<button class="btn btn-default" type="button">M</button>
+											<button class="btn btn-default" type="button">L</button>
+										</p>
+									</div>
+								</li>
+								<li class="row">
+									<p class="col-md-2 dq_biaoti">数量:
+										<div class="col-md-10 product_content_type">
+											<i class="no-select" style="user-select: none;" id="product_num_decbtn">-</i>
+											<input id="dq_product_number" type="text" readonly="readonly" value="1" />
+											<i class="no-select" style="user-select: none;" id="product_num_addbtn">+</i>
+										</div>
+									</p>
+					
+								</li>
+					
+								<li class="row">
+									<p class="col-mg-2 dq_biaoti">商家服务:</p>
+									<p class="col-md-10 dq_shangjia_server">
+										<a href="" alt="优货，购有所值">&loz;&7天无理由退货&loz;15天无忧换货&loz;满119包邮&loz;商家发货网易自营</a>
+									</p>
+								</li>
+								<li style="margin-top: 20px;" class="row">
+									<div class="col-md-3">
+										<button class="dq_buy">立即购买</button>
+									</div>
+									<div class="col-md-3 col-md-offset-3">
+										<button class="dq_in_buycar">
+											    							<span  class="glyphicon glyphicon-shopping-cart">加入购物车
+											    							</span>
+											    						</button>
+									</div>
+					
+								</li>
+							</ul>
+							<div class="info" style="display: none;"></div>
+					
+						</div>
+					
+					</div>
 					</div>
 				</div>
 			</div>
@@ -388,127 +487,16 @@
 <script type="text/javascript" src="js/bootstrap.min.js" ></script>
 <script type="text/javascript" src="js/lastbasic.js"></script>
 <script>
-	function getUrlVal(property){
+	/**function getUrlVal(property){
 	  //地址栏
 	  var urlStr = window.location.search.substring(1);
 	  var re = new RegExp('(^|&)'+ property +'=([^&]*)(&|$)');
 	  var result = urlStr.match(re);
 	  if(result == null){return null};
 	  return result[2];
-	};
+	};*/
 	
-	//调用渲染数据方法
-	addGoodsData();
-	//渲染数据封装
-	function addGoodsData(){
-		var goodsId = getUrlVal("goods_id"); 
-		console.log(goodsId);
-		if(goodsId!=null){
-			$.get('http://www.wjian.top/shop/api_goods.php',{
-				goods_id:goodsId,
-				},function(result){
-					var goodsData = JSON.parse(result);
-					console.log(goodsData);
-					console.log(goodsData.data[0].price);
-					
-					if(goodsData.code != 0){
-						return;
-					}
-					var str = `
-					<!--左侧商品图片显示-->
-					<div class="col-md-6">
-						<!--列-->
-						<div class="fdajing"></div>
-						<div class="product_info_left">
-							<!--左侧上面内容-->
-					
-							<!--按钮-->
-							<a href="javascript:;" class="dq_next"></a>
-							<a href="javascript:;" class="dq_prev"></a>
-							<div class="dq_product_img">
-								<img src="${goodsData.data[0].goods_thumb}" />
-								<!--滑块-->
-								<div class="slide"></div>
-							</div>
-					
-							<ul class="dq_product_min_img">
-								<li><img src="${goodsData.data[0].goods_thumb}" /></li>
-							</ul>
-					
-						</div>
-					</div>
-					
-					<!--右侧商品详细内容-->
-					<div class="col-md-5">
-						<div class="product_info_right">
-					
-							<ul>
-								<li>
-									<h3>${goodsData.data[0].goods_name}</h3></li>
-								<li>
-									<p id="product_content_slogan"${goodsData.data[0].goods_desc}</p>
-								</li>
-								<li>
-									<h3 id="dq_price">￥${goodsData.data[0].price}</h3></li>
-								<li class="row">
-									<p class="col-md-2 dq_product_sellquick">促销热卖中……</p>
-					
-								</li>
-					
-								<li class="row">
-									<div class="col-md-10 product_content_type">
-										<p style="font-size:18px;">颜色 :
-											<button class="btn btn-default" type="button">白色</button>
-											<button class="btn btn-default" type="button" style="background-color: gold;">玫瑰金</button>
-											<button class="btn btn-default" type="button" style="background-color: deeppink;">粉色</button>
-											<button class="btn btn-default" type="button" style="background-color: #5CB85C;">绿色</button>
-											<button class="btn btn-default" type="button" style="background-color: aqua;">淡蓝色</button>
-										</p>
-									</div>
-					
-								</li>
-								<li class="row">
-									<p class="col-md-2 dq_biaoti">数量:
-										<div class="col-md-10 product_content_type">
-											<i id="product_num_decbtn">➖</i>
-											<input id="dq_product_number" type="text" readonly="readonly" value="1" />
-											<i id="product_num_addbtn">➕</i>
-										</div>
-									</p>
-					
-								</li>
-					
-								<li class="row">
-									<p class="col-mg-2 dq_biaoti">商家服务:</p>
-									<p class="col-md-10 dq_shangjia_server">
-										<a href="" alt="优货，购有所值">&loz;&7天无理由退货&loz;15天无忧换货&loz;满119包邮&loz;商家发货网易自营</a>
-									</p>
-								</li>
-								<li style="margin-top: 20px;" class="row">
-									<div class="col-md-3">
-										<button class="dq_buy">立即购买</button>
-									</div>
-									<div class="col-md-3 col-md-offset-3">
-										<button class="dq_in_buycar">
-											    							<span  class="glyphicon glyphicon-shopping-cart">加入购物车
-											    							</span>
-											    						</button>
-									</div>
-					
-								</li>
-							</ul>
-							<div class="info" style="display: none;"></div>
-					
-						</div>
-					
-					</div>
-					`;
-					$('#goodsInformation').append(str);
-				});
-			}
-	}
-	
-	
+
 	$('#dq_chang_a>a').click(function(){
 		$(this).addClass('dq_active').siblings().removeClass();
 //或者$(this).attr('class','dq_active')$(this).siblings().attr('class','');
@@ -599,7 +587,7 @@
       $('.dq_product_img img').attr('src', imgSrc);
       console.log(imgSrc);
       $('.fdajing').css({
-        'background-image':'url('+ imgSrc +')'
+        'background-image':'url('+ imgSrc +')',
       });
 	};
   
