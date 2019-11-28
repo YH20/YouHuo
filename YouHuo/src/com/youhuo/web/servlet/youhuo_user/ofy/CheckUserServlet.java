@@ -39,9 +39,9 @@ public class CheckUserServlet extends HttpServlet {
 	    UserService dao=new  UserServiceImpl();
 	    boolean f=false;
 		f=dao.selectByUser(users);
-//		response.setHeader("Content-Type", "application/json;charset=utf-8");
+		response.setHeader("Content-Type", "application/json;charset=utf-8");
 //		设置标记
-//		成功
+//		成功f
 		String a="200";
 		String b="0";
 	    if(f){

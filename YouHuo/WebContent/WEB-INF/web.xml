@@ -25,4 +25,8 @@
     <filter-name>character</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+   <!-- 单态登录监听 -->
+  <listener>
+     <listener-class>com.youhuo.web.listener.LoginSessionListener</listener-class>
+  </listener>
 </web-app>

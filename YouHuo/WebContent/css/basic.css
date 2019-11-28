@@ -3,7 +3,12 @@
 a{text-decoration: none;}
 li{list-style:none;}
 img{border: 0px;vertical-align: bottom;}
-
+.no-slect{
+	-moz-user-select: none; /*mozilar*/
+	-webkit-user-select: none; /*webkit*/
+	-ms-user-select: none; /*IE*/
+	user-select: none;
+}
 header{
 	width: 100%;
 	position: fixed;

@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.youhuo.dao.GoodsDao;
+import com.youhuo.dao.GoodsTypeDao;
 import com.youhuo.dao.impl.GoodsDaoImpl;
+import com.youhuo.dao.impl.GoodsTypeDaoImpl;
 import com.youhuo.db.DBHelper;
 import com.youhuo.pojo.Goods;
+import com.youhuo.pojo.GoodsType;
 import com.youhuo.service.zz.GoodsShowService;
 /**
  * 商品展示Service实现类
@@ -17,6 +20,7 @@ import com.youhuo.service.zz.GoodsShowService;
 public class GoodsShowServiceImpl implements GoodsShowService{
 	
 	private GoodsDao dao = new GoodsDaoImpl();
+	private GoodsTypeDao typeDao = new GoodsTypeDaoImpl();
 	/**
 	 * 首页的推荐数据 
 	 * @param nums  数量
@@ -69,8 +73,37 @@ public class GoodsShowServiceImpl implements GoodsShowService{
 		return newList;
 	}
 	
+	/**
+	 * 查询商品详情
+	 * @param gid
+	 * @return
+	 */
+	@Override
+	public Goods selectGoodsInfo(long gid) {
+		Connection conn = DBHelper.getConnection();
+		Goods goods = dao.selectByID(conn, gid);
+		DBHelper.closeConnection(conn);
+		return goods;
+	}
+	
 	public static void main(String[] args) {
 		GoodsShowService service = new GoodsShowServiceImpl();
 		service.slideshowGoods();
+		System.out.println(service.selectGoodsInfo(37081L));
+	}
+	@Override
+	public GoodsType selectGoodsType(int typeId) {
+		Connection conn = DBHelper.getConnection();
+		GoodsType goodsType = null;
+		goodsType = typeDao.selectByID(conn, typeId);
+		DBHelper.closeConnection(conn);
+		return goodsType;
+	}
+	@Override
+	public List<Goods> recommendGoods(int type, int recommend, int nums, boolean desc) {
+		Connection conn = DBHelper.getConnection();
+		List<Goods> list = dao.selectByGoodsTypeAndRecommend(conn, type, recommend, nums, desc);
+		DBHelper.closeConnection(conn);
+		return list;
 	}
 }

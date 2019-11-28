@@ -44,7 +44,7 @@
 									<a href="index.do" id="ahome" class="nav-link active">首页</a>
 								</li>
 								<li class="nav-item dropdown m-l-10" id="product">
-									<a href="goodsList.jsp" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
+									<a href="goodsList.jsp" target="_blank" class="nav-link dropdown-toggle" data-hover="dropdown">产品</a>
 									<div class="dropdown-menu animation-slide-bottom10" id="pulldown">
 										<a href="javascript:;" title="充电宝" target='_self' class='dropdown-item '>充电宝</a>
 										<a href="javascript:;" title="手机电池" target='_self' class='dropdown-item '>手机电池</a>
@@ -130,10 +130,45 @@
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
 											<div class="navlogin" >
+											<c:if test="${userssion ne null}">
+												<a href="javascript:;" class="navbar-brand" data-toggle="dropdown" style="font-size:14px" aria-expanded="false">
+					                                   	${userssion.getUserName()}<span class="caret"></span>
+					                            </a>
+											</c:if>
+											<c:if test="${userssion eq null}">
 												<a class="navbar-brand" id="navbar_Login" href="/YouHuo/index-login.jsp"  title="登录">
 													<span class="glyphicon glyphicon-user"></span>
 												</a>
+<<<<<<< HEAD
+											</c:if>
+												<!--  				
+				                               	<ul class="nav-user-list" id="userDropDown" style="display: block;">
+				                                	<li class="user-center">
+				                                		<a href="javascript:;" class="dropdown-item" role="menuitem"><i class="fa fa-user-o" aria-hidden="true"></i> 商城中心</a>
+				                                	</li>
+				                                	<li class="exit" id="userExit">
+				                                		<a href="javascript:;" class="dropdown-item" role="menuitem"><i class="fa fa-window-close" aria-hidden="true"></i> 退出</a>
+				                                	</li>
+				                                </ul>
+				                               -->	
+				                               </div>
+=======
+													<!--  <a href="javascript:;" class="navbar-brand navbar-avatar dropdown-toggle" style="font-size:12px" id="wellcome" data-toggle="dropdown" aria-expanded="false">
+					                                   	欢：<span class="caret"></span>
+					                                </a>
+													-->
+																	 <!--
+				                               	<ul class="nav-user-list" id="userDropDown" style="display: block;">
+				                                	<li class="user-center">
+				                                		<a href="javascript:;" class="dropdown-item" role="menuitem"><i class="fa fa-user-o" aria-hidden="true"></i> 商城中心</a>
+				                                	</li>
+				                                	<li class="exit" id="userExit">
+				                                		<a href="javascript:;" class="dropdown-item" role="menuitem"><i class="fa fa-window-close" aria-hidden="true"></i> 退出</a>
+				                                	</li>
+				                                </ul>
+				                               -->
 											</div>
+>>>>>>> branch 'master' of https://github.com/YH20/YouHuo.git
 										</li>
 										<li calss='shopcarli'>
 											<div class="navshopcart">
@@ -216,14 +251,14 @@
 											<c:forTokens items="${goods.goodsImgs}" var="img" delims="@YH@" end="2" varStatus="i">
 												<c:if test="${i.count eq 1}">
 													<li class="active" style="width:291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-													<a href="" title="">
+													<a href="/YouHuo/showGood?id=${goods.GId}" target="_blank" title="${goods.goodsName}">
 														<img src="${img}" />
 													</a>
 													</li>
 												</c:if>
 												<c:if test="${i.count ne 1}">
 													<li class="" style="width:291px;position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;">
-														<a href="" title="">
+														<a href="/YouHuo/showGood?id=${goods.GId}" target="_blank" title="${goods.goodsName}">
 															<img src="${img}" />
 														</a>
 													</li>
@@ -238,10 +273,10 @@
 											</div>
 										</ul>
 										<h4 class="card-title m-b-0">
-											<a href="product/showproduct.php?id=" title="${goods.goodsName}" class="block text-truncate" target="_self" tabindex="-1">
+											<a href="/YouHuo/showGood?id=${goods.GId}" target="_blank" title="${goods.goodsName}" class="block text-truncate" target="_self" tabindex="-1">
 													<span  style="">${goods.goodsName}</span> </a>
 													<p class="description">　　</p>
-													<span class="btn btn-default btn-detail"><a href="product/showproduct.php?id=" title="${goods.goodsName}" tabindex="-1">查看详情</a></span>
+													<span class="btn btn-default btn-detail"><a href="/YouHuo/showGood?id=${goods.GId}" target="_blank" title="${goods.goodsName}" tabindex="-1">查看详情</a></span>
 													<p class="price m-b-0 m-t-5">
 												￥${goods.goodsPrice}元</p>
 										</h4>
@@ -499,17 +534,17 @@ function getShowGoodsList(nums,type){
 							+"<ul class='card-img'>"
 							+"<div class='new-list'>"
 							+"<li class='active' style='position:relative;left: 0px;top: 0px;z-index: 999;opacity: 1;'>"
-							+"<a href='product_infomation.jsp?goods_id="+list[i].GId+"' title=''>"			
+							+"<a href='/YouHuo/showGood?id="+list[i].GId+"' target='_blank' title='"+list[i].goodsName+"'>"			
 							+"<img src='"+imgpath+"' />"				
 							+"</a>"		
 							+"</li>"		
 							+"</div>"	
 							+"</ul>"
 							+"<h4 class='card-title m-b-0'>"
-							+"<a href='product_infomation.jsp?goods_id="+list[i].GId+"' title='"+list[i].goodsName+"' class='block text-truncate' target='_self' tabindex='-1'>"
+							+"<a href='/YouHuo/showGood?id="+list[i].GId+"'target='_blank' title='"+list[i].goodsName+"' class='block text-truncate' target='_self' tabindex='-1'>"
 							+"<p class='description'>　　</p>"
 							+"<span  style=''>"+list[i].goodsName+"</span></a>"
-							+"<span class='btn btn-default btn-detail'><a href='product_infomation.jsp?goods_id="+list[i].GId+"'title='"+list[i].goodsName+"' tabindex='-1'>查看详情</a></span>"
+							+"<span class='btn btn-default btn-detail'><a href='/YouHuo/showGood?id="+list[i].GId+"' target='_blank' title='"+list[i].goodsName+"' tabindex='-1'>查看详情</a></span>"
 							+"<p class='price m-b-0 m-t-5'>￥$"+list[i].goodsPrice+"元</p>"
 					+"</div></li>";
 				//每遍历一次就添加一次
