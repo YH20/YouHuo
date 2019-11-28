@@ -175,9 +175,9 @@
 										<a href="information.jsp">
 											<img src="../images/getAvatar.do.jpg">
 										</a>
-										<em class="s-name">(小叮当)<span class="vip1"></em>
-										<div class="s-prestige am-btn am-round">
-											</span>会员福利</div>
+										<em class="s-name">(小叮当)<span class="vip1"></span></em>
+										<em class="s-name">&emsp;tel:<span></span></em>
+										<div class="s-prestige am-btn am-round">&emsp;白银会员福利</div>
 									</div>
 									<div class="m-right">
 										<div class="m-new">
@@ -623,24 +623,32 @@
 	</body>
 </html>
 <script type="text/javascript"> 
-	$(document).ready(function(){
+	//$(document).ready(function(){
 	var myid="a5e52c60-dadd-4cc6-a0ed-25ead2b60f14";
 	
-				/* $.ajax({
+				$.ajax({
 		          		type:"post",
 		          		url:"http://localhost:8080/YouHuo/mynfo",//servlet文件的名称
 		          		data:"myid=" + myid,
 		          		success:function(e){
-		          		console.log(myid),
-		          			alert("success调用成功！");
-		          			//把JSON字符串转化为JSON对象
+		          		console.log(myid);
+		          			var myinfo
                				var json = eval("("+e+")");
-							//获取String
-               				$(".s-name").text(json.username);
-		          			alert("servlet调用成功！"+json.userphone);
+							//获取后端数据
+							var level;
+							var levelnum=json.userlevel;
+							var vip="vip"+levelnum;
+							console.log("会员等级："+json.userlevel);
+							
+               				$(".m-baseinfo").empty();
+               				myinfo='<a href='+"information.jsp"+'><img src='+"../images/getAvatar.do.jpg"+'></a>'+
+										'<em class='+"s-name"+'>'+json.username+'<span class="'+vip+'"></span></em>'+
+										'<em class='+"s-name2"+'>&emsp;tel:<span>'+json.userphone+'</span></em>'+
+										'<div class="'+'s-prestige am-btn am-round"'+'>&emsp;'+json.level+'福利</div>';
+							$(".m-baseinfo").append(myinfo);
 		          		}
-		          	}); */
-	});
+		          	});
+	//});
 
 	
 </script>  
