@@ -624,31 +624,36 @@
 </html>
 <script type="text/javascript"> 
 	$(document).ready(function(){
-	var myid="a5e52c60-dadd-4cc6-a0ed-25ead2b60f14";
+		var date=new Date();
+		var month=date.getMonth()+1;
+		var weekday = "星期" + "日一二三四五六".charAt(new Date().getDay()); 
+		$(".s-date").empty();
+		var mytime='<em>'+date.getDate()+'</em><span>'+weekday+'</span><span>'+date.getFullYear()+'.'+month+'</span>';
+		$(".s-date").append(mytime);
+		
 	
-				$.ajax({
-		          		type:"post",
-		          		url:"http://localhost:8080/YouHuo/mynfo",//servlet文件的名称
-		          		data:"myid=" + myid,
-		          		success:function(e){
-		          		console.log(myid);
-		          			var myinfo
-               				var json = eval("("+e+")");
-							//获取后端数据
-							var level;
-							var levelnum=json.userlevel;
-							var vip="vip"+levelnum;
-							console.log("会员等级："+json.userlevel);
-							
-               				$(".m-baseinfo").empty();
-               				myinfo='<a href='+"information.jsp"+'><img src='+"../images/getAvatar.do.jpg"+'></a>'+
-										'<em class='+"s-name"+'>'+json.username+'<span class="'+vip+'"></span></em>'+
-										'<em class='+"s-name2"+'>&emsp;tel:<span>'+json.userphone+'</span></em>'+
-										'<div class="'+'s-prestige am-btn am-round"'+'>&emsp;'+json.level+'福利</div>';
-							$(".m-baseinfo").append(myinfo);
-		          		}
-		          	});
+		var myid="a5e52c60-dadd-4cc6-a0ed-25ead2b60f14";
+		$.ajax({
+        		type:"post",
+        		url:"http://localhost:8080/YouHuo/myinfo",//servlet文件的名称
+        		data:"myid=" + myid,
+        		success:function(e){
+        			var myinfo
+           			var json = eval("("+e+")");
+					//获取后端数据
+					var level;
+					var levelnum=json.userlevel;
+					var vip="vip"+levelnum;
+					console.log("会员等级："+json.userlevel);
+         			$(".m-baseinfo").empty();
+         			myinfo='<a href='+"information.jsp"+'><img src='+"../images/getAvatar.do.jpg"+'></a>'+
+							'<em class='+"s-name"+'>'+json.username+'<span class="'+vip+'"></span></em>'+
+							'<em class='+"s-name2"+'>&emsp;tel:<span>'+json.userphone+'</span></em>'+
+							'<div class="'+'s-prestige am-btn am-round"'+'>&emsp;'+json.level+'福利</div>';
+					$(".m-baseinfo").append(myinfo);
+        		}
+        	});
+        	
+        	
 	});
-
-	
 </script>  
