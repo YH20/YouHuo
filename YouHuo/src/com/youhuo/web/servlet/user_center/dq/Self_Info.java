@@ -19,7 +19,7 @@ import net.sf.json.JSONObject;
 /**
  * Servlet implementation class Self_Info
  */
-@WebServlet(name = "mynfo", urlPatterns = { "/mynfo" })
+@WebServlet(name = "mynfo", urlPatterns = { "/myinfo" })
 public class Self_Info extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
