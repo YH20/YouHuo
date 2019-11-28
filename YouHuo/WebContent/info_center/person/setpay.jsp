@@ -196,17 +196,16 @@
 						<div class="am-form-group bind">
 							<label for="user-phone" class="am-form-label">验证手机</label>
 							<div class="am-form-content">
-								<span id="user-phone">186XXXX0531</span>
+								<span id="user-phone">187XXXX2377</span>
 							</div>
 						</div>
-						<div class="am-form-group code">
+						<div class="am-form-group">
 							<label for="user-code" class="am-form-label">验证码</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-code" placeholder="短信验证码">
+								<input type="tel" id="user-code" placeholder="短信验证码"/>
+								<button style="float:right;margin-top:2px;padding:1px 2px;background:red;border:none">验证码</button>
 							</div>
-							<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
-								<div class="am-btn am-btn-danger">验证码</div>
-							</a>
+							
 						</div>
 						<div class="am-form-group">
 							<label for="user-password" class="am-form-label">支付密码</label>

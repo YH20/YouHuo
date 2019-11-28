@@ -625,13 +625,8 @@
 <script type="text/javascript" lang> 
 
 /*前台中获取Session中的对象：*/
-/*    function getSessionMessage(){ 
-      List list = (List)session.getAttribute("message"); 
-      alert(list);
+   function getSessionMessage(){ 
    } 
- */
-
-
 
 
 	$(document).ready(function(){

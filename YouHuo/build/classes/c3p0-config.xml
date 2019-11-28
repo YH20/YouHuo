@@ -4,7 +4,7 @@
 		<!-- 配置数据库用户名 -->
 		<property name="user">root</property>
 		<!-- 配置数据库密码 -->
-		<property name="password">xiaozhao</property>
+		<property name="password">123456</property>
 		<!-- 配置数据库链接地址 -->
 		<property name="jdbcUrl">jdbc:mysql://127.0.0.1:3306/youhuo?useUnicode=true&amp;characterEncoding=UTF-8</property>
 		<!-- 配置数据库驱动 -->
