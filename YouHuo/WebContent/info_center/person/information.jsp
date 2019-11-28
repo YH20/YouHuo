@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -20,6 +20,9 @@
 		<link rel="stylesheet" href="../css/basic.css" type="text/css"/>
 		<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css"  />
 		<link rel="stylesheet" href="../css/font-awesome.css" type="text/css" />
+		<style type="text/css">
+			.tishi{color:red;font-size:14px;border:none;}
+		</style>
 	</head>
 
 	<body>
@@ -184,16 +187,16 @@
 							<p class="am-form-help">头像</p>
 
 							<div class="info-m">
-								<div><b>用户名：<i>小叮当</i></b></div>
+								<div><b>用户名：<i>${sessionScope.user.username }</i></b></div>
 								<div class="u-level">
 									<span class="rank r2">
-							             <s class="vip1"></s><a class="classes" href="#">铜牌会员</a>
+							             <s class="vip1"></s><a class="classes" href="#">${sessionScope.user.level }</a>
 						            </span>
 								</div>
 								<div class="u-safety">
 									<a href="safety.jsp">
 									 账户安全
-									<span class="u-profile"><i class="bc_ee0000" style="width: 60px;" width="0">60分</i></span>
+									<span class="u-profile"><i class="bc_ee0000" style="width: 60px;" width="0">76分</i></span>
 									</a>
 								</div>
 							</div>
@@ -202,22 +205,6 @@
 						<!--个人信息 -->
 						<div class="info-main">
 							<form class="am-form am-form-horizontal" name="myinfoall" id="myinfo">
-
-								<!--<div class="am-form-group">
-									<label for="user-name2" class="am-form-label">昵称</label>
-									<div class="am-form-content">
-										<input type="text" id="user-name2" placeholder="nickname">
-
-									</div>
-								</div>-->
-
-								<div class="am-form-group">
-									<label for="user-name" class="am-form-label">姓名</label>
-									<div class="am-form-content">
-										<input type="text" id="user-name2" placeholder="name" name="NName">
-
-									</div>
-								</div>
 
 								<div class="am-form-group">
 									<label class="am-form-label" >性别</label>
@@ -256,14 +243,15 @@
 								<div class="am-form-group">
 									<label for="user-phone" class="am-form-label">电话</label>
 									<div class="am-form-content">
-										<input id="user-phone" placeholder="telephonenumber" type="tel" name="TTel">
-
+										<input id="user-phone" placeholder="telephonenumber" type="tel" name="TTel"/>
+										<button class="tishi">格式错误</button>
 									</div>
 								</div>
 								<div class="am-form-group">
 									<label for="user-email" class="am-form-label">电子邮件</label>
 									<div class="am-form-content">
 										<input id="user-email" placeholder="Email" type="email" name="EEmail">
+										<button class="tishi">格式错误</button>
 									</div>
 								</div>
 								<div class="info-btn">
@@ -348,6 +336,61 @@
 	</body>
 </html>
 <script type="text/javascript" >
+/*先得到session数据   修改之前需要默认值*/
+
+/*测试👇*/
+//1
+	$().click(function(){
+		var myheadimg=$().val();var sex=$().val();
+		var phonenum=$().val();
+		var email=$().val();
+	
+	
+	});
+	//2
+	function updateInfo(){
+		var myid="a5e52c60-dadd-4cc6-a0ed-25ead2b60f14";
+		$.ajax({
+        		type:"post",
+        		url:"http://localhost:8080/YouHuo/updatemyinfo",//servlet文件的名称
+        		data:"myid=" + myid,
+        		success:function(e){
+        			var myinfo
+           			var json = eval("("+e+")");
+					//获取后端数据
+					var level;
+					var levelnum=json.userlevel;
+					var vip="vip"+levelnum;
+					console.log("会员等级："+json.userlevel);
+         			$(".m-baseinfo").empty();
+         			myinfo='<a href='+"information.jsp"+'><img src='+"../images/getAvatar.do.jpg"+'></a>'+
+							'<em class='+"s-name"+'>'+json.username+'<span class="'+vip+'"></span></em>'+
+							'<em class='+"s-name2"+'>&emsp;tel:<span>'+json.userphone+'</span></em>'+
+							'<div class="'+'s-prestige am-btn am-round"'+'>&emsp;'+json.level+'福利</div>';
+					$(".m-baseinfo").append(myinfo);
+        		}
+        	});
+	}
+		
+        	
+/*测试👆*/
+/* $('#..').attr('checked',true)
+		
+		$(":radio")	所有 type="radio" 的 <input> 元素 */
+user-phone
+
+/*已完成👇*/
+	$("button.tishi").hide();
+	$("#user-phone").mouseleave(function(){
+		var telphone=$(this).val();
+		checkPhone(telphone,$(this).siblings().eq(0));
+	});
+	
+	$("#user-email").mouseleave(function(){
+		var email=$(this).val();
+		checkEmail(email,$(this).siblings().eq(0));
+	});
+	
 	$(document).ready(function(){
 		var date = new Date(); 
 		var yearnow=date.getFullYear();
@@ -418,4 +461,20 @@
 	    }
 	    $('#myinfo select[name=DDay]').html(currentDay);//生成日期下拉列表
 	};
+	
+	function checkPhone(telphone,e){
+    	if(!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(telphone))){
+    		e.show();
+   	 	}else{
+   	 		e.hide();
+   	 	}
+	}
+	function checkEmail(email,e){
+	    var re =/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
+	    if(re.test(email)){
+	        e.hide();
+	    }else{
+	        e.show();
+	    }
+	}
 </script>
