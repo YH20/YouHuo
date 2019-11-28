@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -169,36 +170,49 @@
 			    <div class="container">
 				    <div class="login-conta row">
 				    	<h2 class="text-center text-info ti">用户登录</h2>
-				    	<form>
+				    	<form action="http://localhost:8080/YouHuo/login" method="post">
 					    <div class="form-login">
 					      <div class="loginput">
+					        <c:if test="${loguser ne null }" >
+					         <input type="hidden"  id="longuser" value="${loguser}" />
+					      	 <input type="text" name="username" id="" value="" placeholder="用户名" class="form-control input-lg login-user" />
+					          <c:if test="${logno ne null }" >
+					              <p class="logError" id="loge1"><img src="img/eer.png"/>${logno}</p>
+					          </c:if>
+					        
+					        </c:if>
+					        <c:if test="${loguser eq null }" >
 					      	<input type="text" name="username" id="" value="" placeholder="用户名" class="form-control input-lg login-user" />
+					        </c:if>
 					        <p class="clueuser">用户名必须在2-12个字符之间,最长12个英文或6个汉字</p>
 					        <p class="logError" id="loge"><img src="img/eer.png"/>此项不能为空 </p>
-						    <p class="logError" id="loge1"><img src="img/eer.png"/>用户不存,请去注册! </p>
 					        <h5 class="clear"></h5>
 					      </div>
 					      <div class="logpass">
-					      	<input type="password" name="password" id="" value="" placeholder="密码" class="form-control input-lg login-pass" />
+					        
+					        <input type="hidden" id="logpasshide" name="logpassword"   />
+					        <input type="password"   placeholder="密码" class="form-control input-lg login-pass" />
 					        <h5 class="clear1"></h5>
 					        <p class="logpassError" id="passe"><img src="img/eer.png"/>此项不能为空 </p>
-						    <p class="logpassError" id="passe1"><img src="img/eer.png"/>密码错误 </p>
+					        <c:if test="${logpasseer ne null }">
+						      <p class="logpassError" id="passe1"><img src="img/eer.png"/>${logpasseer} </p>
+						    </c:if>
 						    <p class="cluepass">密码必须在6-30个字符之间 </p>
 					      </div>
 						  <div class="remember">
 						  	<p>123</p>
 						  	<p>123</p>
 						  </div>
-						  <h5 class="text-right"id="loge"><a class="" href="index-find.html">忘记密码?</a></h5>
-						  <button class="btn btn-block btn-lg login-btn" type="submit">登录</button>
-						  <a href="index-register.html" class="btn btn-block btn-lg login-btn1">没有账号?现在去注册</a>
+						  <h5 class="text-right"id="loge"><a class="" href="index-find.jsp">忘记密码?</a></h5>
+						  <button type="submit" class="btn btn-block btn-lg login-btn" >登录</button>
+						  <a href="http://localhost:8080/YouHuo/index-register.jsp" class="btn btn-block btn-lg login-btn1">没有账号?现在去注册</a>
 					    </div>
 					   </form>
 				    </div>
 			    </div>	
 			</div>
 		</section>
-		\<!--底部导航-->
+		<!--底部导航-->
 		<div class="foot-nav-list">
 			<div class="container">
 				<div class="col-lg-8 col-md-12 nav-list">
@@ -317,6 +331,7 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/user.js" ></script>
+<script type="text/javascript" src="js/md5.js" ></script>
 <script>
 	setTimeout(function() {
 		$('.load').css('display', 'none')

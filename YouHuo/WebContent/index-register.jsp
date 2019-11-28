@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -168,7 +169,7 @@
 			<div class="register-index">
 				<div class="container">
 					<div class="register-conta">
-					   <form action="register" method="" >
+					   <form action="http://localhost:8080/YouHuo/register" method="post" >
 						<div class="form-register">
 							<h2 class="text-center">会员注册</h2>
 							<!--头像-->
@@ -177,12 +178,13 @@
 									<img class="imgphoto" style="border-radius: 50%;" src="dq_img/bg1.gif" />
 								    <span class="imgadd">+</span>
 								</div>
-								
+								<input type="hidden" value="${regimg}" id="regcontent" />
 								<input type="hidden" value="" id="content" name="content" />
 							    <input type="file" class="select-file" onchange="show(this)" />
 							</div>
 							<!--用户名-->
 							<div class="input-group">
+							    <input type="hidden" id="reguser" value="${reguser}"/>
 								<span class="input-group-addon glyphicon glyphicon-user" id="sizing-addon1"></span>
 								<input type="text" name="registeruser" id="" value="" class="form-control form-user input-lg" placeholder="用户名" aria-describedby="sizing-addon1" />
 								<p class="userError"><img src="img/eer.png"/>此项不能为空</p>
@@ -217,6 +219,7 @@
 							<!--密保问题-->
 							<div class="register-question">
 								<div class="input-group">
+								    <input type="hidden" id="regpose" value="${regposeone}"/>
 									<span class="input-group-addon glyphicon glyphicon-question-sign"></span>
 									<select class="form-control input-lg rgister-pose" name="registerpose">
                                         <option value="0">请设置密保问题</option>
@@ -230,6 +233,7 @@
 								</div>
 								<div class="input-group register-answer">
 									<span class="input-group-addon glyphicon glyphicon-pencil"></span>
+									<input type="hidden" id="reganswer" value="${reganwer}"/>
 									<input type="text" name="registeranswer" class="form-control input-lg reg-input-answer" placeholder="输入密保答案">
 									<p class="reg-answerError"><img src="img/eer.png"/>请您选择一项填入</p>
 									<p class="reg-answerError1">限中文,数字,字母</p>
@@ -243,7 +247,9 @@
 								<input type="text" name="registercode" id="" value="" class="form-control form-messge input-lg" placeholder="验证码" />
 							    <a class="btn input-group-btn"><img  name="" id="register-random" onclick="flushCode(this)" src="imageServlet" /></a>
 								<p class="mesError"><img src="img/eer.png"/>此项不能为空</p>
-								<p class="mes1Error">$(mesg)</p>
+								<c:if test="${mesg ne null }" >
+								   <p class="mes1Error"><img src="img/eer.png"/>验证码错误</p>
+								</c:if>
 							</div>
 							<button type="submit" class="btn btn-block register-btn btn-lg">立即注册</button>
 							<h5 class="text-right"><a class="" href=" index-login.html">已有账号?</a></h5>

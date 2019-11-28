@@ -130,10 +130,27 @@
 									<ul class="navbar-nav navbar-left memberlist">
 										<li class="navbar-left loginli">
 											<div class="navlogin" >
+											<c:if test="${userssion ne null}">
+												<a href="javascript:;" class="navbar-brand" data-toggle="dropdown" style="font-size:14px" aria-expanded="false">
+					                                   	${userssion.getUserName()}<span class="caret"></span>
+					                            </a>
+											</c:if>
+											<c:if test="${userssion eq null}">
 												<a class="navbar-brand" id="navbar_Login" href="/YouHuo/index-login.jsp"  title="登录">
 													<span class="glyphicon glyphicon-user"></span>
 												</a>
-											</div>
+											</c:if>
+												<!--  				
+				                               	<ul class="nav-user-list" id="userDropDown" style="display: block;">
+				                                	<li class="user-center">
+				                                		<a href="javascript:;" class="dropdown-item" role="menuitem"><i class="fa fa-user-o" aria-hidden="true"></i> 商城中心</a>
+				                                	</li>
+				                                	<li class="exit" id="userExit">
+				                                		<a href="javascript:;" class="dropdown-item" role="menuitem"><i class="fa fa-window-close" aria-hidden="true"></i> 退出</a>
+				                                	</li>
+				                                </ul>
+				                               -->	
+				                               </div>
 										</li>
 										<li calss='shopcarli'>
 											<div class="navshopcart">

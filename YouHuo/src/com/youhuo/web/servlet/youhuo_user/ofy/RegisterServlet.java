@@ -46,6 +46,7 @@ public class RegisterServlet extends HttpServlet {
 	   String photo=null;
 	   String users=request.getParameter("registeruser");
 	   String pass=request.getParameter("registerpass");
+	 
 	   String poseone=request.getParameter("registerpose");
 	   int pose=Integer.parseInt(poseone);
 	   String anwer=request.getParameter("registeranswer");
@@ -55,6 +56,7 @@ public class RegisterServlet extends HttpServlet {
 	   if(img=="") {
 ////	    如果 获得默认图片 获得服务器里
 		  String path = this.getServletContext().getRealPath("/")+"dq_img/bg1.gif";
+		  
 //			读到当前服务器的路径的文件
 		  FileInputStream fis=new FileInputStream(path);
 //		  准备一个byte[]
@@ -102,18 +104,21 @@ public class RegisterServlet extends HttpServlet {
 	    	boolean flag=false;
 	    	flag=dao.addUser(user, shoppingcar);
 	    	if(flag){
-	    		response.sendRedirect("index-login.jsp");
+	    		response.sendRedirect("http://localhost:8080/YouHuo/index-login.jsp");
 	    		System.out.print("注册成功");
 	    		
 	    	}else{
-	    		response.sendRedirect("index-register.jsp");
-	    		System.out.print("注册失败");
+	    		response.sendRedirect("http://localhost:8080/YouHuo/index-register.jsp");
 	    	}
 	    	
 		}else{
-			request.getSession().setAttribute("mesg", "验证码错误!");
-			response.sendRedirect("index-register.jsp");
-			System.out.print("验证码错误!");
+			request.setAttribute("regimg", img);
+			request.setAttribute("reguser", users);
+			request.setAttribute("regposeone", poseone);
+			request.setAttribute("reganwer", anwer);
+			request.setAttribute("mesg", "验证码错误!");
+			request.getRequestDispatcher("/index-register.jsp").forward(request, response);
+//			response.sendRedirect("http://localhost:8080/YouHuo/WebContent/index-register.jsp");
 //			验证码错误
 		    
 		}

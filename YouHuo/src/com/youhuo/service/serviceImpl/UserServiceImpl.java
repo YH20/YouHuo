@@ -75,12 +75,28 @@ public class UserServiceImpl implements UserService{
 	public User loginUser(String user, String pass) {
 		Connection conn=DBHelper.getConnection();
 		List<User> list= new ArrayList<User>();
-		list=dao.selectAll(conn);
-		for (int i = 0; i < list.size(); i++) {
-			if(list.get(i).getUserName().equals(user)&&list.get(i).getUserPass().equals(pass)){
-				
+		  try {
+				conn.setAutoCommit(false);
+				list=dao.selectAll(conn);
+				for (int i = 0; i < list.size(); i++) {
+					if(list.get(i).getUserName().equals(user)&&list.get(i).getUserPass().equals(pass)){
+						return list.get(i);
+					}
+				}
+				//提交数据
+				conn.commit();
+			} catch (SQLException e) {
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				e.printStackTrace();
+			}finally{
+				 DBHelper.closeConnection(conn);
 			}
-		}
+		
 		return null;
 	}
    

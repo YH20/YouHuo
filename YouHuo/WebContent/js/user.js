@@ -4,6 +4,11 @@ setTimeout(function() {
 
 //   ----------用户登录，注册，忘记密码--------------
 
+
+
+
+
+
 //注册----------------------------
 //定义四个锁
 var regf = false;
@@ -14,6 +19,65 @@ var regf4=false;
 // 存账号和密码
 var userName = null;
 var pwd = null;
+
+$(window).load(function(){
+//	头像
+//		// base64编码的图片
+//	var base64Img=$("#regcontent").val();
+//	if(base64Img!=''){
+//		// 转成图片文件
+//		var imgFile = dataURLtoFile(base64Img); 
+//
+////		## 如果想要预览转出来的图片可以：
+//		const fileReader = new FileReader();  // 创建一个 fileReader
+//		fileReader.readAsDataURL(imgFile); // 将生成的图片文件读到 fileReader中
+//		const img = new Image();
+//		img.src = fileReader.result; // 将 fileReader.result 设置为 图片的 src
+//	}
+	
+	
+	
+	
+//	用户名
+   var user=$("#reguser").val();
+   if(user!=""){
+	   $('.form-user').val(user);
+	   regf = true;
+	   $('.form-user').siblings('.correct').show(2000);
+	   lock();
+   }
+//   问题选择
+   var select=$('#regpose').val();
+   if(select!=""){
+	   regf4=true;
+	   lock();
+	   $('.rgister-pose').val(select);
+	   var reganswes=$('#reganswer').val();
+	   $('.reg-input-answer').val(reganswes);
+   }
+  
+	
+});
+
+function dataURLtoFile(dataurl, filename = 'file') {
+	  let arr = dataurl.split(',')
+	  let mime = arr[0].match(/:(.*?);/)[1]
+	  let suffix = mime.split('/')[1]
+	  let bstr = atob(arr[1])
+	  let n = bstr.length
+	  let u8arr = new Uint8Array(n)
+	  while (n--) {
+	    u8arr[n] = bstr.charCodeAt(n)
+	  }
+	  return new File([u8arr], `${filename}.${suffix}`, {
+	    type: mime
+	  })
+	}
+$(window).load(function(){
+	var user=$('#longuser').val();
+	$('.login-user').val(user);
+	console.log(user);
+});
 //页面打开产生随机验证码
 $('#register-random').val(randommessage());
 //注册
@@ -76,20 +140,28 @@ $('.input-group .form-user').blur(function() {
 			regf = false;
 			return
 		}
-		regf = true;
-		$(this).siblings('.correct').show();
-		$(this).css('border', '1px solid #ccc');
 		//	验证用户存在
-		lock1();
 	    var user=$(".form-user").val();
+	    that=this;
 	    $.ajax({
 	    	type:"post",
-	    	url:"checkUserServlet",
+	    	url:"http://localhost:8080/YouHuo/checkUserServlet",
 	    	data:"checkuser="+user,
 	    	contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
 	    	success:function(result){
-	    		if(result=="0"){
-//	    			用户存在
+	    		console.log(result);
+//	    		用户存在
+	    		if(result=="200"){
+	    			$(that).siblings('.userError3').show();
+	    			$(that).css('border', '1px solid red');
+	    			$(that).siblings('span').css('border', '1px solid red');
+	    			regf = false;
+	    			lock1();
+	    		}else{
+	    			$(that).siblings('.correct').show();
+	    			$(that).css('border', '1px solid #ccc');
+	    			regf = true;
+	    			lock1();
 	    		}
 	    	}
 	    });
@@ -211,6 +283,7 @@ function ippassevent1(pass, that) {
 		$(that).siblings('span').css('border', '1px solid red');
 		regf1 = false;
 		return
+		
 	}
 	regf1 = true;
 	$(that).css('border', '1px solid #ccc');
@@ -476,6 +549,22 @@ $('.login-btn').attr('disabled', true);
 //	$(this).css('border','1px solid #ccc');
 ////	记住找账号
 //});
+$(window).load(function(){
+	var user=$('#longuser').val();
+	$('.login-user').val(user);
+	var h=$('#loge1').html();
+	var h1=$('#passe1').html();
+	if(h!=''){
+		$('#loge1').hide();
+		$('#loge1').show(2500);
+	}
+	if(h1!=''){
+		$('#passe1').hide();
+		$('#passe1').show(2500);
+	}
+});
+
+
 //键盘事件按下
 $('.form-login .loginput .login-user').keydown(function() {
 	$(this).siblings('.clueuser').hide();
@@ -555,6 +644,7 @@ $('.form-login .login-pass').keydown(function() {
 $('.form-login .login-pass').keyup(function() {
 	var pass = $(this).val();
 	logpassevent1(pass, this);
+	
 });
 
 $('.form-login .login-pass').focus(function() {
@@ -604,36 +694,43 @@ $('.login-btn').click(function() {
 //	点击之前先把标记清楚
     $('#passe1').hide();
     $('#loge1').hide();
-	lock();
-	$.post('http://www.wjian.top/shop/api_user.php', {
-		status: 'login',
-		username: loguser,
-		password: logpwd,
-	}, function(re) {
-		var obj=JSON.parse(re);
-		console.log(obj);
-//		用户不存在
-        if (obj.code==2002) {
-        	$('.form-login .login-user').css('border','1px solid red');
-        	$('.form-login .login-user').focus();
-        	$('.form-login .login-user').select();
-        	$('.clueuser').hide();
-        	$('#loge1').show();
-        	return
-        }else if(obj.code==1001){//		密码错误
-        	$('.form-login .login-pass').css('border','1px solid red');
-        	$('.form-login .login-pass').focus();
-        	$('.form-login .login-pass').select();
-        	$('.cluepass').hide();
-        	$('#passe1').show();
-        	return
-        }
-
-//		登录成功返回主页面
-       window.location.href ='index.html?name='+obj.data.username+'&token='+obj.data.token;
-       localStorage.setItem('username', obj.data.username);
-       localStorage.setItem('token', obj.data.token);
-	});
+//	md5密码加密
+    var pass=$('.login-pass').val();
+    var pasno=calcMD5(pass);
+    $('#logpasshide').val(pasno);
+    lock();
+//    var pass=$('.form-pass').val();
+//    pass=calcMD5(pass);
+//    $('#passhide').val(pass);
+//	$.post('http://www.wjian.top/shop/api_user.php', {
+//		status: 'login',
+//		username: loguser,
+//		password: logpwd,
+//	}, function(re) {
+//		var obj=JSON.parse(re);
+//		console.log(obj);
+////		用户不存在
+//        if (obj.code==2002) {
+//        	$('.form-login .login-user').css('border','1px solid red');
+//        	$('.form-login .login-user').focus();
+//        	$('.form-login .login-user').select();
+//        	$('.clueuser').hide();
+//        	$('#loge1').show();
+//        	return
+//        }else if(obj.code==1001){//		密码错误
+//        	$('.form-login .login-pass').css('border','1px solid red');
+//        	$('.form-login .login-pass').focus();
+//        	$('.form-login .login-pass').select();
+//        	$('.cluepass').hide();
+//        	$('#passe1').show();
+//        	return
+//        }
+//
+////		登录成功返回主页面
+//       window.location.href ='index.html?name='+obj.data.username+'&token='+obj.data.token;
+//       localStorage.setItem('username', obj.data.username);
+//       localStorage.setItem('token', obj.data.token);
+//	});
 });
 
 
