@@ -623,7 +623,7 @@
 	</body>
 </html>
 <script type="text/javascript"> 
-	//$(document).ready(function(){
+	$(document).ready(function(){
 	var myid="a5e52c60-dadd-4cc6-a0ed-25ead2b60f14";
 	
 				$.ajax({
@@ -648,7 +648,7 @@
 							$(".m-baseinfo").append(myinfo);
 		          		}
 		          	});
-	//});
+	});
 
 	
 </script>  
